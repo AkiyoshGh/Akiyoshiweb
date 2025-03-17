@@ -30,11 +30,12 @@ const SocialLinks = styled.div`
 `;
 
 const QRCode = styled.img`
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
   margin-top: 1rem;
-  border: 1px solid #eee;
-  border-radius: 4px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 `;
 
 const SocialLink = styled(motion.a)`
@@ -66,7 +67,7 @@ const Footer = () => {
         </FooterSection>
         <FooterSection>
           <h3>联系方式</h3>
-          <p>邮箱：contact@akiyoshi.design</p>
+          <p>邮箱：Akiyoshi-design@outlook.com</p>
           <p>电话：+86 17625129139</p>
           <QRCode src="/images/wechat-qr.svg" alt="微信二维码" />
         </FooterSection>

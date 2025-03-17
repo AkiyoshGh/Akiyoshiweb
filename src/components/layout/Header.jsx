@@ -113,10 +113,17 @@ const NavLink = styled(motion(Link))`
 
 
 const Header = () => {
+  const handleNavClick = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <HeaderContainer>
       <Nav>
-        <Logo to="/">
+        <Logo to="/" onClick={handleNavClick}>
           <img src="/images/logo-stamp.svg" alt="Akiyoshi Logo" className="logo-image" />
           <div className="logo-text">
             <span className="logo-main">Akiyoshi Studio</span>
@@ -129,6 +136,7 @@ const Header = () => {
             to="/"
             whileHover={{ y: -2 }}
             whileTap={{ y: 0 }}
+            onClick={handleNavClick}
           >
             <div className="nav-text">
               <span>首页</span>
@@ -139,6 +147,7 @@ const Header = () => {
             to="/portfolio"
             whileHover={{ y: -2 }}
             whileTap={{ y: 0 }}
+            onClick={handleNavClick}
           >
             <div className="nav-text">
               <span>作品集</span>
@@ -149,6 +158,7 @@ const Header = () => {
             to="/blog"
             whileHover={{ y: -2 }}
             whileTap={{ y: 0 }}
+            onClick={handleNavClick}
           >
             <div className="nav-text">
               <span>博客</span>
@@ -159,6 +169,7 @@ const Header = () => {
             to="/about"
             whileHover={{ y: -2 }}
             whileTap={{ y: 0 }}
+            onClick={handleNavClick}
           >
             <div className="nav-text">
               <span>关于</span>

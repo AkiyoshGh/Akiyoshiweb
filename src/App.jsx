@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import Home from './pages/Home';
@@ -9,10 +9,24 @@ import Blog from './pages/Blog';
 import BlogDetail from './components/blog/BlogDetail';
 import GlobalStyles from './styles/GlobalStyles';
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }, [pathname]);
+
+  return null;
+}
+
 function App() {
   return (
     <Router>
       <GlobalStyles />
+      <ScrollToTop />
       <Header />
       <main>
         <Routes>
