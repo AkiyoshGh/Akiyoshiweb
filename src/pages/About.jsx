@@ -37,40 +37,25 @@ const SectionTitle = styled.h2`
   text-align: center;
 `;
 
-const TeamGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: var(--spacing-lg);
-  margin-top: var(--spacing-xl);
-`;
-
-const TeamMember = styled(motion.div)`
+const ProfileSection = styled.div`
+  max-width: 800px;
+  margin: 0 auto;
   text-align: center;
 `;
 
-const MemberImage = styled.img`
+const ProfileImage = styled.img`
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
   object-fit: cover;
 `;
 
-const MemberName = styled.h3`
-  font-size: 1.2rem;
-  color: var(--color-primary);
-  margin-bottom: var(--spacing-xs);
-`;
-
-const MemberRole = styled.p`
-  color: var(--color-accent);
-  font-size: 0.9rem;
-  margin-bottom: var(--spacing-sm);
-`;
-
-const MemberBio = styled.p`
-  color: var(--color-text-light);
-  font-size: 0.9rem;
+const ProfileBio = styled.p`
+  color: var(--color-text);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: var(--spacing-xl);
 `;
 
 const ServiceGrid = styled.div`
@@ -98,27 +83,6 @@ const ServiceDescription = styled.p`
 `;
 
 const About = () => {
-  const team = [
-    {
-      name: '山田 明',
-      role: '创意总监',
-      bio: '拥有超过10年的设计经验，专注于品牌策略和用户体验设计。',
-      image: '/team/member1.jpg'
-    },
-    {
-      name: '李 静',
-      role: 'UI/UX设计师',
-      bio: '擅长移动应用界面设计，注重用户交互体验的优化与创新。',
-      image: '/team/member2.jpg'
-    },
-    {
-      name: '张 伟',
-      role: '视觉设计师',
-      bio: '专注于品牌视觉识别系统设计，擅长将品牌理念转化为视觉语言。',
-      image: '/team/member3.jpg'
-    }
-  ];
-
   const services = [
     {
       title: '品牌设计',
@@ -141,33 +105,25 @@ const About = () => {
   return (
     <AboutContainer>
       <AboutHeader>
-        <Title>关于我们</Title>
+        <Title>关于我</Title>
         <Subtitle>
-          我们是一支充满激情的设计团队，致力于为客户创造独特的视觉体验和有价值的设计解决方案。
+          热衷于创造独特的视觉体验和有价值的设计解决方案
         </Subtitle>
       </AboutHeader>
 
       <ContentSection>
-        <SectionTitle>我们的团队</SectionTitle>
-        <TeamGrid>
-          {team.map((member, index) => (
-            <TeamMember
-              key={member.name}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-            >
-              <MemberImage src={member.image} alt={member.name} />
-              <MemberName>{member.name}</MemberName>
-              <MemberRole>{member.role}</MemberRole>
-              <MemberBio>{member.bio}</MemberBio>
-            </TeamMember>
-          ))}
-        </TeamGrid>
+        <ProfileSection>
+          <ProfileImage src="/images/profile.jpg" alt="Akiyoshi" />
+          <ProfileBio>
+            你好，我是Akiyoshi，一名拥有多年经验的设计师。我专注于品牌设计、UI/UX设计和插画创作，
+            致力于为客户提供专业的设计解决方案。我相信优秀的设计不仅能传达信息，更能创造价值，
+            期待能与您合作，共同打造出色的作品。
+          </ProfileBio>
+        </ProfileSection>
       </ContentSection>
 
       <ContentSection>
-        <SectionTitle>我们的服务</SectionTitle>
+        <SectionTitle>我的服务</SectionTitle>
         <ServiceGrid>
           {services.map((service, index) => (
             <ServiceCard

@@ -5,6 +5,8 @@ import Footer from './components/layout/Footer';
 import Home from './pages/Home';
 import Portfolio from './pages/Portfolio';
 import About from './pages/About';
+import Blog from './pages/Blog';
+import BlogDetail from './components/blog/BlogDetail';
 import GlobalStyles from './styles/GlobalStyles';
 
 function App() {
@@ -17,6 +19,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/about" element={<About />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:id" element={<BlogDetail />} />
         </Routes>
       </main>
       <Footer />

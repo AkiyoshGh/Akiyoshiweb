@@ -5,7 +5,7 @@ const GlobalStyles = createGlobalStyle`
     /* 颜色系统 */
     --color-primary: #2d3436;
     --color-secondary: #636e72;
-    --color-accent: #0984e3;
+    --color-accent: #C4181F;
     --color-background: #ffffff;
     --color-text: #2d3436;
     --color-text-light: #636e72;
@@ -47,6 +47,8 @@ const GlobalStyles = createGlobalStyle`
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.02em;
+    word-spacing: 0.05em;
   }
 
   h1, h2, h3, h4, h5, h6 {

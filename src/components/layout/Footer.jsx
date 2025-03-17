@@ -29,6 +29,14 @@ const SocialLinks = styled.div`
   gap: 1rem;
 `;
 
+const QRCode = styled.img`
+  width: 120px;
+  height: 120px;
+  margin-top: 1rem;
+  border: 1px solid #eee;
+  border-radius: 4px;
+`;
+
 const SocialLink = styled(motion.a)`
   color: #666;
   text-decoration: none;
@@ -59,37 +67,20 @@ const Footer = () => {
         <FooterSection>
           <h3>联系方式</h3>
           <p>邮箱：contact@akiyoshi.design</p>
-          <p>电话：+86 123 4567 8900</p>
+          <p>电话：+86 17625129139</p>
+          <QRCode src="/images/wechat-qr.svg" alt="微信二维码" />
         </FooterSection>
         <FooterSection>
           <h3>社交媒体</h3>
           <SocialLinks>
             <SocialLink
-              href="https://weibo.com"
+              href="https://www.zcool.com.cn"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ y: -2 }}
               whileTap={{ y: 0 }}
             >
-              微博
-            </SocialLink>
-            <SocialLink
-              href="https://behance.net"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ y: -2 }}
-              whileTap={{ y: 0 }}
-            >
-              Behance
-            </SocialLink>
-            <SocialLink
-              href="https://dribbble.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ y: -2 }}
-              whileTap={{ y: 0 }}
-            >
-              Dribbble
+              站酷
             </SocialLink>
           </SocialLinks>
         </FooterSection>
