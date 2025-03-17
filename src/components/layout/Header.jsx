@@ -19,10 +19,14 @@ const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 700px;
-  margin: 0;
-  margin-left: 0.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
   height: 80px;
+  padding: 0 1rem;
+
+  @media (max-width: 768px) {
+    padding: 0 0.5rem;
+  }
 `;
 
 const Logo = styled(Link)`
@@ -64,6 +68,11 @@ const Logo = styled(Link)`
 const NavLinks = styled.div`
   display: flex;
   gap: 2rem;
+  margin-left: auto;
+
+  @media (max-width: 768px) {
+    gap: 1rem;
+  }
 `;
 
 const NavLink = styled(motion(Link))`
