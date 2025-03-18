@@ -4,61 +4,54 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 const BlogContainer = styled.div`
-  max-width: 1200px;
+  max-width: var(--breakpoint-desktop);
   margin: 0 auto;
-  padding: var(--spacing-xl) var(--spacing-lg);
 `;
 
 const BlogGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--spacing-lg);
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const BlogCard = styled(motion.article)`
-  background: white;
-  border-radius: 8px;
+  position: relative;
   overflow: hidden;
+  border-radius: 8px;
+  background: white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 `;
 
 const BlogImage = styled.img`
   width: 100%;
-  height: 200px;
+  height: 300px;
   object-fit: cover;
 `;
 
-const BlogContent = styled.div`
+const BlogLinks = styled.div`
   padding: var(--spacing-md);
-`;
-
-const BlogTitle = styled.h2`
-  font-size: 1.5rem;
-  margin-bottom: var(--spacing-sm);
-  color: var(--color-primary);
-`;
-
-const BlogExcerpt = styled.p`
-  color: var(--color-text-light);
-  margin-bottom: var(--spacing-md);
-  line-height: 1.6;
-`;
-
-const BlogMeta = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: var(--color-text-light);
-  font-size: 0.9rem;
+  flex-direction: column;
+  gap: var(--spacing-sm);
 `;
 
-const ReadMore = styled(Link)`
-  color: var(--color-accent);
+const BlogLink = styled(Link)`
+  color: var(--color-text);
   text-decoration: none;
-  font-weight: 500;
+  font-size: 1rem;
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--color-border);
   
   &:hover {
-    text-decoration: underline;
+    color: var(--color-primary);
+  }
+  
+  &:last-child {
+    border-bottom: none;
   }
 `;
 
@@ -69,18 +62,16 @@ const BlogList = ({ posts }) => {
         {posts.map((post) => (
           <BlogCard
             key={post.id}
-            whileHover={{ y: -10 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
           >
             <BlogImage src={post.image} alt={post.title} />
-            <BlogContent>
-              <BlogTitle>{post.title}</BlogTitle>
-              <BlogExcerpt>{post.excerpt}</BlogExcerpt>
-              <BlogMeta>
-                <span>{post.date}</span>
-                <ReadMore to={`/blog/${post.id}`}>阅读更多</ReadMore>
-              </BlogMeta>
-            </BlogContent>
+            <BlogLinks>
+              <BlogLink to={`/blog/${post.id}`}>2022.09 广州</BlogLink>
+              <BlogLink to={`/blog/${post.id}`}>2025.08 北京</BlogLink>
+              <BlogLink to={`/blog/${post.id}`}>2010.10 日本</BlogLink>
+            </BlogLinks>
           </BlogCard>
         ))}
       </BlogGrid>

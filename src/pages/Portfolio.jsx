@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 const PortfolioContainer = styled.div`
   padding: calc(var(--spacing-xl) * 2) var(--spacing-lg);
@@ -56,6 +57,12 @@ const ProjectCard = styled(motion.div)`
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 `;
 
+const ImageContainer = styled.div`
+  position: relative;
+  width: 100%;
+  height: 250px;
+`;
+
 const ProjectImage = styled.img`
   width: 100%;
   height: 250px;
@@ -86,7 +93,8 @@ const ProjectDescription = styled.p`
 `;
 
 const Portfolio = () => {
-  const [activeFilter, setActiveFilter] = React.useState('全部');
+  const navigate = useNavigate();
+  const [activeFilter, setActiveFilter] = useState('全部');
 
   const filters = ['全部', 'UI设计', '品牌设计', '插画', '动效设计'];
 
@@ -118,6 +126,125 @@ const Portfolio = () => {
       category: '动效设计',
       description: '为移动应用设计的流畅交互动效',
       image: '/portfolio/project4.jpg'
+    },
+    {
+      id: 5,
+      title: '移动应用UI设计',
+      category: 'UI设计',
+      description: '专注用户体验的移动应用界面设计方案',
+      image: '/portfolio/project5.jpg'
+    },
+    {
+      id: 6,
+      title: '企业品牌形象设计',
+      category: '品牌设计',
+      description: '现代企业品牌视觉形象整体解决方案',
+      image: '/portfolio/project6.jpg'
+    },
+    {
+      id: 7,
+      title: '创意插画设计',
+      category: '插画',
+      description: '独特风格的创意插画艺术作品',
+      image: '/portfolio/project7.jpg'
+    },
+    {
+      id: 8,
+      title: '网页交互动效',
+      category: '动效设计',
+      description: '为网站设计的精美交互动效方案',
+      image: '/portfolio/project8.jpg'
+    },
+    {
+      id: 9,
+      title: '社交媒体UI设计',
+      category: 'UI设计',
+      description: '现代社交平台的用户界面设计',
+      image: '/portfolio/project9.jpg'
+    },
+    {
+      id: 10,
+      title: '品牌包装设计',
+      category: '品牌设计',
+      description: '创新产品包装视觉设计方案',
+      image: '/portfolio/project10.jpg'
+    },
+    {
+      id: 11,
+      title: '概念插画创作',
+      category: '插画',
+      description: '科幻主题概念艺术插画系列',
+      image: '/portfolio/project11.jpg'
+    },
+    {
+      id: 12,
+      title: '页面转场动效',
+      category: '动效设计',
+      description: '流畅的页面切换动画效果设计',
+      image: '/portfolio/project12.jpg'
+    },
+    {
+      id: 13,
+      title: '金融App界面设计',
+      category: 'UI设计',
+      description: '专业金融应用的用户界面设计',
+      image: '/portfolio/project13.jpg'
+    },
+    {
+      id: 14,
+      title: '活动主视觉设计',
+      category: '品牌设计',
+      description: '大型活动的品牌视觉设计',
+      image: '/portfolio/project14.jpg'
+    },
+    {
+      id: 15,
+      title: '儿童绘本插画',
+      category: '插画',
+      description: '温馨有趣的儿童故事插画',
+      image: '/portfolio/project15.jpg'
+    },
+    {
+      id: 16,
+      title: '图标动效设计',
+      category: '动效设计',
+      description: '生动的图标动画效果设计',
+      image: '/portfolio/project16.jpg'
+    },
+    {
+      id: 17,
+      title: '旅行App设计',
+      category: 'UI设计',
+      description: '旅行应用的用户体验设计',
+      image: '/portfolio/project17.jpg'
+    },
+    {
+      id: 18,
+      title: '节日品牌设计',
+      category: '品牌设计',
+      description: '节日主题的品牌视觉设计',
+      image: '/portfolio/project18.jpg'
+    },
+    {
+      id: 19,
+      title: '商业插画设计',
+      category: '插画',
+      description: '商业广告插画作品系列',
+      image: '/portfolio/project19.jpg'
+    },
+    {
+      id: 20,
+      title: '加载动画设计',
+      category: '动效设计',
+      description: '创意的加载状态动画设计',
+      image: '/portfolio/project20.jpg'
+    },
+    {
+      id: 21,
+      title: '音乐App界面',
+      category: 'UI设计',
+      description: '音乐播放器的界面设计方案',
+      image: '/portfolio/project21.jpg'
     }
   ];
 
@@ -153,8 +280,15 @@ const Portfolio = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             whileHover={{ y: -10 }}
+            onClick={() => navigate(`/portfolio/${project.id}`)}
+            style={{ cursor: 'pointer' }}
           >
-            <ProjectImage src={project.image} alt={project.title} />
+            <ImageContainer>
+              <ProjectImage
+                src={project.image}
+                alt={project.title}
+              />
+            </ImageContainer>
             <ProjectInfo>
               <ProjectCategory>{project.category}</ProjectCategory>
               <ProjectTitle>{project.title}</ProjectTitle>

@@ -2,6 +2,15 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
   :root {
+    --color-primary: #333;
+    --color-secondary: #666;
+    --color-background: #fff;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 4rem;
+  }
+  :root {
     /* 颜色系统 */
     --color-primary: #2d3436;
     --color-secondary: #636e72;

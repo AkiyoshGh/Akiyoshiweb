@@ -5,8 +5,11 @@ import { motion } from 'framer-motion';
 const FooterContainer = styled.footer`
   padding: 2rem;
   background: #f8f9fa;
-  margin-top: 4rem;
+  width: 100%;
+  margin-top: auto;
 `;
+
+
 
 const FooterContent = styled.div`
   max-width: 1200px;

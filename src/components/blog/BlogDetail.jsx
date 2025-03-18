@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 const BlogDetailContainer = styled.article`
   max-width: 800px;
@@ -54,8 +54,25 @@ const BlogContent = styled.div`
   }
 `;
 
+const BackButton = styled.button`
+  background: none;
+  border: none;
+  color: var(--color-accent);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-md);
+  
+  &:hover {
+    opacity: 0.8;
+  }
+`;
+
 const BlogDetail = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   
   // 这里可以根据id获取博客详细内容
   const post = {
@@ -74,6 +91,9 @@ const BlogDetail = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
+      <BackButton onClick={() => navigate('/blog')}>
+        ← 返回博客列表
+      </BackButton>
       <BlogHeader>
         <BlogTitle>{post.title}</BlogTitle>
         <BlogMeta>

@@ -7,6 +7,7 @@ import Portfolio from './pages/Portfolio';
 import About from './pages/About';
 import Blog from './pages/Blog';
 import BlogDetail from './components/blog/BlogDetail';
+import PortfolioDetail from './components/portfolio/PortfolioDetail';
 import GlobalStyles from './styles/GlobalStyles';
 
 function ScrollToTop() {
@@ -32,6 +33,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/portfolio/:id" element={<PortfolioDetail />} />
           <Route path="/about" element={<About />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<BlogDetail />} />

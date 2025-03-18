@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400">
+  <rect width="800" height="400" fill="#f5f5f5"/>
+  <text x="400" y="200" font-family="Arial" font-size="24" fill="#333" text-anchor="middle" dominant-baseline="middle">动效设计</text>
+  <path d="M300,200 L500,200" stroke="#4a90e2" stroke-width="3" fill="none">
+    <animate attributeName="d" dur="2s" repeatCount="indefinite"
+      values="M300,200 L500,200;M300,180 Q400,220 500,180;M300,200 L500,200"/>
+  </path>
+  <circle cx="400" cy="200" r="30" fill="#4a90e2" opacity="0.2">
+    <animate attributeName="r" values="30;40;30" dur="2s" repeatCount="indefinite"/>
+  </circle>
+</svg>
