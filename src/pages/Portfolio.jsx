@@ -55,28 +55,41 @@ const ProjectCard = styled(motion.div)`
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-`;
-
-const ImageContainer = styled.div`
   position: relative;
   width: 100%;
-  height: 250px;
+  height: 200px;
 `;
 
 const ProjectImage = styled.img`
   width: 100%;
-  height: 250px;
+  height: 100%;
   object-fit: cover;
+  transition: transform 0.3s ease;
+
+  ${ProjectCard}:hover & {
+    transform: scale(1.1);
+  }
 `;
 
 const ProjectInfo = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   padding: var(--spacing-md);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--color-text);
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+
+  ${ProjectCard}:hover & {
+    transform: translateY(0);
+  }
 `;
 
 const ProjectTitle = styled.h3`
-  font-size: 1.2rem;
   margin-bottom: var(--spacing-sm);
-  color: var(--color-primary);
+  color: var(--color-text);
 `;
 
 const ProjectCategory = styled.span`
@@ -87,9 +100,8 @@ const ProjectCategory = styled.span`
 `;
 
 const ProjectDescription = styled.p`
-  color: var(--color-text-light);
+  color: var(--color-text);
   font-size: 0.9rem;
-  margin-bottom: 0;
 `;
 
 const Portfolio = () => {
@@ -279,16 +291,14 @@ const Portfolio = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            whileHover={{ y: -10 }}
+            whileHover={{ scale: 1.02 }}
             onClick={() => navigate(`/portfolio/${project.id}`)}
             style={{ cursor: 'pointer' }}
           >
-            <ImageContainer>
-              <ProjectImage
-                src={project.image}
-                alt={project.title}
-              />
-            </ImageContainer>
+            <ProjectImage
+              src={project.image}
+              alt={project.title}
+            />
             <ProjectInfo>
               <ProjectCategory>{project.category}</ProjectCategory>
               <ProjectTitle>{project.title}</ProjectTitle>
