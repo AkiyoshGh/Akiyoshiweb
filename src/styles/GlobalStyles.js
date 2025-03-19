@@ -5,10 +5,10 @@ const GlobalStyles = createGlobalStyle`
     --color-primary: #333;
     --color-secondary: #666;
     --color-background: #fff;
-    --spacing-sm: 0.5rem;
-    --spacing-md: 1rem;
-    --spacing-lg: 2rem;
-    --spacing-xl: 4rem;
+    --spacing-sm: 0.4rem;
+    --spacing-md: 0.8rem;
+    --spacing-lg: 1.6rem;
+    --spacing-xl: 3rem;
   }
   :root {
     /* 颜色系统 */
