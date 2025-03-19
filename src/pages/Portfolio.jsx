@@ -60,13 +60,20 @@ const ProjectCard = styled(motion.div)`
   height: 200px;
 `;
 
-const ProjectImage = styled.img`
+const ProjectMedia = styled.div`
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
+  overflow: hidden;
+  
+  img, video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
 
-  ${ProjectCard}:hover & {
+  ${ProjectCard}:hover img,
+  ${ProjectCard}:hover video {
     transform: scale(1.1);
   }
 `;
@@ -108,155 +115,95 @@ const Portfolio = () => {
   const navigate = useNavigate();
   const [activeFilter, setActiveFilter] = useState('全部');
 
-  const filters = ['全部', 'UI设计', '品牌设计', '插画', '动效设计'];
+  const filters = ['全部', 'Vi', 'App/Web', '动画/视频', '宣传册/书籍', '形象设计', '包装', '插画'];
 
   const projects = [
     {
       id: 1,
-      title: '电商App界面设计',
-      category: 'UI设计',
-      description: '为新零售电商平台打造的现代化移动应用界面设计',
-      image: '/portfolio/project1.jpg'
+      title: '动画效果设计',
+      category: '动画/视频',
+      description: '创意动画效果设计作品',
+      images: [
+        '/portfolio/Animation_Video/project-1.jpg'
+      ],
+      video: '/portfolio/Animation_Video/project-1.mp4'
     },
     {
       id: 2,
-      title: '品牌视觉识别系统',
-      category: '品牌设计',
-      description: '为科技初创公司设计的完整品牌视觉识别系统',
-      image: '/portfolio/project2.jpg'
+      title: '电商App界面设计',
+      category: 'App/Web',
+      description: '以用户体验为核心的电商平台界面设计，提升购物体验',
+      image: '/portfolio/App_Web/project-1.jpg'
     },
     {
       id: 3,
-      title: '插画系列作品',
-      category: '插画',
-      description: '以未来主义为主题的商业插画系列',
-      image: '/portfolio/project3.jpg'
+      title: '企业品牌形象设计',
+      category: '形象设计',
+      description: '打造独特的品牌视觉语言，塑造专业企业形象',
+      image: '/portfolio/Brand_Image/project-1.jpg'
     },
     {
       id: 4,
-      title: '交互动效设计',
-      category: '动效设计',
-      description: '为移动应用设计的流畅交互动效',
-      image: '/portfolio/project4.jpg'
+      title: '企业宣传册设计',
+      category: '宣传册/书籍',
+      description: '精致的排版设计，展现企业专业形象与价值主张',
+      image: '/portfolio/Brochure_Book/project-1.jpg'
     },
     {
       id: 5,
-      title: '移动应用UI设计',
-      category: 'UI设计',
-      description: '专注用户体验的移动应用界面设计方案',
-      image: '/portfolio/project5.jpg'
+      title: '产品画册设计',
+      category: '宣传册/书籍',
+      description: '优雅的版式与精美的图片展示，突出产品特色',
+      image: '/portfolio/Brochure_Book/project-2.jpg'
     },
     {
       id: 6,
-      title: '企业品牌形象设计',
-      category: '品牌设计',
-      description: '现代企业品牌视觉形象整体解决方案',
-      image: '/portfolio/project6.jpg'
+      title: '创意插画设计',
+      category: '插画',
+      description: '富有创意的手绘插画，为品牌传达独特艺术魅力',
+      image: '/portfolio/Illustration/project-1.jpg'
     },
     {
       id: 7,
-      title: '创意插画设计',
-      category: '插画',
-      description: '独特风格的创意插画艺术作品',
-      image: '/portfolio/project7.jpg'
+      title: '食品包装设计',
+      category: '包装',
+      description: '新颖的包装设计，让产品在货架上脱颖而出',
+      image: '/portfolio/Packaging/project-1.jpg'
     },
     {
       id: 8,
-      title: '网页交互动效',
-      category: '动效设计',
-      description: '为网站设计的精美交互动效方案',
-      image: '/portfolio/project8.jpg'
+      title: '化妆品包装设计',
+      category: '包装',
+      description: '优雅精致的包装设计，彰显品牌高端形象',
+      image: '/portfolio/Packaging/project-2.jpg'
     },
     {
       id: 9,
-      title: '社交媒体UI设计',
-      category: 'UI设计',
-      description: '现代社交平台的用户界面设计',
-      image: '/portfolio/project9.jpg'
+      title: '饮料包装设计',
+      category: '包装',
+      description: '时尚清新的包装设计，提升产品市场竞争力',
+      image: '/portfolio/Packaging/project-3.jpg'
     },
     {
       id: 10,
-      title: '品牌包装设计',
-      category: '品牌设计',
-      description: '创新产品包装视觉设计方案',
-      image: '/portfolio/project10.jpg'
+      title: '礼盒包装设计',
+      category: '包装',
+      description: '精致典雅的礼盒设计，传递品牌价值与情感',
+      image: '/portfolio/Packaging/project-4.jpg'
     },
     {
       id: 11,
-      title: '概念插画创作',
-      category: '插画',
-      description: '科幻主题概念艺术插画系列',
-      image: '/portfolio/project11.jpg'
+      title: '品牌VI设计',
+      category: 'Vi',
+      description: '全方位的品牌视觉识别系统设计，构建品牌形象',
+      image: '/portfolio/Vi/project-1.jpg'
     },
     {
       id: 12,
-      title: '页面转场动效',
-      category: '动效设计',
-      description: '流畅的页面切换动画效果设计',
-      image: '/portfolio/project12.jpg'
-    },
-    {
-      id: 13,
-      title: '金融App界面设计',
-      category: 'UI设计',
-      description: '专业金融应用的用户界面设计',
-      image: '/portfolio/project13.jpg'
-    },
-    {
-      id: 14,
-      title: '活动主视觉设计',
-      category: '品牌设计',
-      description: '大型活动的品牌视觉设计',
-      image: '/portfolio/project14.jpg'
-    },
-    {
-      id: 15,
-      title: '儿童绘本插画',
-      category: '插画',
-      description: '温馨有趣的儿童故事插画',
-      image: '/portfolio/project15.jpg'
-    },
-    {
-      id: 16,
-      title: '图标动效设计',
-      category: '动效设计',
-      description: '生动的图标动画效果设计',
-      image: '/portfolio/project16.jpg'
-    },
-    {
-      id: 17,
-      title: '旅行App设计',
-      category: 'UI设计',
-      description: '旅行应用的用户体验设计',
-      image: '/portfolio/project17.jpg'
-    },
-    {
-      id: 18,
-      title: '节日品牌设计',
-      category: '品牌设计',
-      description: '节日主题的品牌视觉设计',
-      image: '/portfolio/project18.jpg'
-    },
-    {
-      id: 19,
-      title: '商业插画设计',
-      category: '插画',
-      description: '商业广告插画作品系列',
-      image: '/portfolio/project19.jpg'
-    },
-    {
-      id: 20,
-      title: '加载动画设计',
-      category: '动效设计',
-      description: '创意的加载状态动画设计',
-      image: '/portfolio/project20.jpg'
-    },
-    {
-      id: 21,
-      title: '音乐App界面',
-      category: 'UI设计',
-      description: '音乐播放器的界面设计方案',
-      image: '/portfolio/project21.jpg'
+      title: '餐饮品牌VI',
+      category: 'Vi',
+      description: '特色鲜明的餐饮品牌设计，打造独特品牌体验',
+      image: '/portfolio/Vi/project-2.jpg'
     }
   ];
 
@@ -288,20 +235,18 @@ const Portfolio = () => {
         {filteredProjects.map(project => (
           <ProjectCard
             key={project.id}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            whileHover={{ scale: 1.02 }}
             onClick={() => navigate(`/portfolio/${project.id}`)}
-            style={{ cursor: 'pointer' }}
           >
-            <ProjectImage
-              src={project.image}
-              alt={project.title}
-            />
+            <ProjectMedia>
+              {project.video ? (
+                <video src={project.video} autoPlay loop muted playsInline />
+              ) : (
+                <img src={project.image} alt={project.title} />
+              )}
+            </ProjectMedia>
             <ProjectInfo>
-              <ProjectCategory>{project.category}</ProjectCategory>
               <ProjectTitle>{project.title}</ProjectTitle>
+              <ProjectCategory>{project.category}</ProjectCategory>
               <ProjectDescription>{project.description}</ProjectDescription>
             </ProjectInfo>
           </ProjectCard>

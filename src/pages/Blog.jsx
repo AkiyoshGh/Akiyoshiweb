@@ -30,31 +30,31 @@ const Blog = () => {
   const posts = [
     {
       id: 1,
-      title: '设计趋势探索：2024年UI设计新方向',
-      excerpt: '探讨最新的用户界面设计趋势，以及如何在实际项目中应用这些创新理念。',
+      title: '设计工作室的品牌塑造：从概念到实现',
+      excerpt: '探讨如何为设计工作室建立独特的品牌形象，以及如何通过视觉设计传达工作室的核心价值。',
       date: '2024-01-15',
-      image: '/blog/trend.jpg'
+      image: '/blog/brand.svg'
     },
     {
       id: 2,
-      title: '品牌设计的艺术：从理念到视觉',
-      excerpt: '深入解析品牌设计的核心要素，以及如何打造独特的品牌视觉识别系统。',
+      title: '数字时代的用户体验设计',
+      excerpt: '深入分析数字产品的用户体验设计原则，以及如何创造出既美观又实用的界面设计。',
       date: '2024-01-10',
-      image: '/blog/brand.jpg'
+      image: '/blog/trend.svg'
     },
     {
       id: 3,
-      title: '插画设计：讲述品牌故事的艺术',
-      excerpt: '探索商业插画在品牌传播中的应用，以及如何通过插画提升品牌价值。',
+      title: '创意插画在商业设计中的应用',
+      excerpt: '分享如何将创意插画融入商业设计项目，为品牌注入独特的艺术气息和视觉表现力。',
       date: '2024-01-05',
-      image: '/blog/illustration.jpg'
+      image: '/blog/illustration.svg'
     },
     {
       id: 4,
-      title: '动效设计：让界面栩栩如生',
-      excerpt: '探讨如何通过精心设计的动画效果，提升用户体验和界面表现力。',
+      title: '动效设计：提升用户交互体验',
+      excerpt: '探索如何通过动效设计增强用户界面的交互体验，使产品更具生命力和吸引力。',
       date: '2024-01-01',
-      image: '/blog/animation.jpg'
+      image: '/blog/animation.svg'
     }
   ];
 

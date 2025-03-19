@@ -10,49 +10,43 @@ const BlogContainer = styled.div`
 
 const BlogGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: var(--spacing-lg);
-  
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-  }
+  max-width: var(--breakpoint-desktop);
+  margin: 0 auto;
 `;
 
 const BlogCard = styled(motion.article)`
-  position: relative;
-  overflow: hidden;
-  border-radius: 8px;
   background: white;
+  border-radius: 8px;
+  overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 `;
 
 const BlogImage = styled.img`
   width: 100%;
-  height: 300px;
+  height: 200px;
   object-fit: cover;
 `;
 
-const BlogLinks = styled.div`
+const BlogContent = styled.div`
   padding: var(--spacing-md);
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-sm);
 `;
 
-const BlogLink = styled(Link)`
+const BlogTitle = styled.h3`
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-primary);
+`;
+
+const BlogExcerpt = styled.p`
   color: var(--color-text);
-  text-decoration: none;
-  font-size: 1rem;
-  padding: var(--spacing-sm) 0;
-  border-bottom: 1px solid var(--color-border);
-  
-  &:hover {
-    color: var(--color-primary);
-  }
-  
-  &:last-child {
-    border-bottom: none;
-  }
+  font-size: 0.9rem;
+  margin-bottom: var(--spacing-sm);
+`;
+
+const BlogDate = styled.span`
+  color: var(--color-secondary);
+  font-size: 0.8rem;
 `;
 
 const BlogList = ({ posts }) => {
@@ -60,19 +54,20 @@ const BlogList = ({ posts }) => {
     <BlogContainer>
       <BlogGrid>
         {posts.map((post) => (
-          <BlogCard
-            key={post.id}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <BlogImage src={post.image} alt={post.title} />
-            <BlogLinks>
-              <BlogLink to={`/blog/${post.id}`}>2022.09 广州</BlogLink>
-              <BlogLink to={`/blog/${post.id}`}>2025.08 北京</BlogLink>
-              <BlogLink to={`/blog/${post.id}`}>2010.10 日本</BlogLink>
-            </BlogLinks>
-          </BlogCard>
+          <Link to={`/blog/${post.id}`} key={post.id} style={{ textDecoration: 'none' }}>
+            <BlogCard
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <BlogImage src={post.image} alt={post.title} />
+              <BlogContent>
+                <BlogTitle>{post.title}</BlogTitle>
+                <BlogExcerpt>{post.excerpt}</BlogExcerpt>
+                <BlogDate>{post.date}</BlogDate>
+              </BlogContent>
+            </BlogCard>
+          </Link>
         ))}
       </BlogGrid>
     </BlogContainer>

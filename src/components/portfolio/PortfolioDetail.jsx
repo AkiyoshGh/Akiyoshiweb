@@ -46,27 +46,70 @@ const ProjectCategory = styled.span`
 const ImageContainer = styled.div`
   position: relative;
   width: 100%;
-  height: 500px;
-  margin-bottom: var(--spacing-xl);
+  height: auto;
+  margin-bottom: var(--spacing-md);
   border-radius: 8px;
   overflow: hidden;
+  aspect-ratio: 16/9;
 `;
 
-const ProjectImage = styled.img`
+const ProjectMedia = styled.div`
   width: 100%;
   height: 100%;
-  object-fit: cover;
-`;
-
-const ImageNav = styled.div`
-  position: absolute;
-  bottom: 10px;
-  left: 0;
-  right: 0;
+  position: relative;
   display: flex;
   justify-content: center;
-  gap: 8px;
-  z-index: 1;
+  align-items: center;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: transparent;
+  }
+`;
+
+const ThumbnailContainer = styled.div`
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-lg);
+  overflow-x: auto;
+  padding: var(--spacing-sm) 0;
+  justify-content: center;
+
+  &::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--color-border);
+    border-radius: 2px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--color-accent);
+    border-radius: 2px;
+  }
+`;
+
+const Thumbnail = styled.img`
+  width: 120px;
+  height: 67.5px;
+  object-fit: cover;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 2px solid ${props => props.active ? 'var(--color-accent)' : 'transparent'};
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 
 const ImageDot = styled.button`
@@ -122,59 +165,163 @@ const SectionContent = styled.p`
 const projects = [
   {
     id: 1,
-    title: '电商App界面设计',
-    category: 'UI设计',
-    description: '为新零售电商平台打造的现代化移动应用界面设计',
+    title: '动画效果设计',
+    category: '动画/视频',
+    description: '创意动画效果设计作品',
     images: [
-      '/portfolio/project1.jpg',
-      '/portfolio/project1-2.jpg',
-      '/portfolio/project1-3.jpg'
+      '/portfolio/Animation_Video/project-1.jpg'
     ],
-    background: '该项目旨在重新定义电商购物体验，通过创新的界面设计提升用户体验。',
-    process: '设计过程包括用户研究、竞品分析、原型设计和多轮用户测试。我们特别关注了移动端的操作便捷性和视觉层级。',
-    outcome: '最终交付的设计方案显著提升了用户满意度，应用的转化率提高了35%。'
+    video: '/portfolio/Animation_Video/project-1.mp4',
+    background: '该项目旨在通过创意动画效果提升用户体验和视觉表现力。',
+    process: '从概念设计到最终实现，我们运用了多种动画技术和创意表现手法。',
+    outcome: '最终呈现的动画效果获得客户高度认可，并在多个场景中得到应用。'
   },
   {
     id: 2,
-    title: '品牌视觉识别系统',
-    category: '品牌设计',
-    description: '为科技初创公司设计的完整品牌视觉识别系统',
+    title: '电商App界面设计',
+    category: 'App/Web',
+    description: '为新零售电商平台打造的现代化移动应用界面设计',
     images: [
-      '/portfolio/project2.jpg',
-      '/portfolio/project2-2.jpg',
-      '/portfolio/project2-3.jpg'
+      '/portfolio/App_Web/project-1.jpg'
     ],
-    background: '客户需要一套能够体现其创新精神和技术实力的品牌视觉系统。',
-    process: '通过深入了解公司文化和价值观，我们开发了包含logo、配色方案、字体系统在内的完整品牌识别系统。',
-    outcome: '新的品牌形象帮助客户在市场中建立了独特的视觉识别，品牌认知度提升显著。'
+    background: '该项目旨在重新定义电商购物体验，通过创新的界面设计提升用户体验。',
+    process: '设计过程包括用户研究、竞品分析、原型设计和多轮用户测试。',
+    outcome: '最终交付的设计方案显著提升了用户满意度和转化率。'
   },
   {
     id: 3,
-    title: '插画系列作品',
-    category: '插画',
-    description: '以未来主义为主题的商业插画系列',
+    title: '企业品牌形象设计',
+    category: '形象设计',
+    description: '现代企业品牌视觉形象整体解决方案',
     images: [
-      '/portfolio/project3.jpg',
-      '/portfolio/project3-2.jpg',
-      '/portfolio/project3-3.jpg'
+      '/portfolio/Brand_Image/project-1.jpg',
+      '/portfolio/Brand_Image/project-1-2.jpg'
     ],
-    background: '这是一个探索未来科技与人文结合的插画项目，旨在展现科技发展带来的可能性。',
-    process: '创作过程中融合了传统手绘技法和数字创作工具，每幅作品都经过精心构思和多次修改。',
-    outcome: '该系列作品在多个设计平台获得推荐，并被多家科技公司采用作为品牌视觉素材。'
+    background: '为企业打造独特的品牌视觉形象，提升品牌识别度。',
+    process: '深入了解企业文化，设计logo、品牌色彩、字体等视觉元素。',
+    outcome: '建立了完整的品牌视觉识别系统，提升了品牌形象。'
   },
   {
     id: 4,
-    title: '交互动效设计',
-    category: '动效设计',
-    description: '为移动应用设计的流畅交互动效',
+    title: '企业宣传册设计',
+    category: '宣传册/书籍',
+    description: '企业宣传册整体设计方案',
     images: [
-      '/portfolio/project4.jpg',
-      '/portfolio/project4-2.jpg',
-      '/portfolio/project4-3.jpg'
+      '/portfolio/Brochure_Book/project-1.jpg'
     ],
-    background: '项目目标是通过精心设计的动效来提升用户体验，使界面交互更加自然流畅。',
-    process: '我们使用最新的动效设计工具，创造了一系列符合材料设计规范的交互动画。',
-    outcome: '实现了既美观又实用的交互效果，获得了用户的积极反馈，并提升了应用的用户留存率。'
+    background: '通过精美的宣传册设计展示企业形象和产品特色。',
+    process: '从内容规划到版式设计，全方位打造专业的企业宣传册。',
+    outcome: '宣传册获得客户好评，有效提升了企业形象。'
+  },
+  {
+    id: 5,
+    title: '产品画册设计',
+    category: '宣传册/书籍',
+    description: '产品展示画册设计方案',
+    images: [
+      '/portfolio/Brochure_Book/project-2.jpg'
+    ],
+    background: '为客户打造专业的产品展示画册，突出产品特色。',
+    process: '精心策划内容布局，融合创意设计元素，打造富有视觉冲击力的画册。',
+    outcome: '画册设计获得客户认可，有效提升了产品形象和市场竞争力。'
+  },
+  {
+    id: 6,
+    title: '创意插画设计',
+    category: '插画',
+    description: '独特风格的创意插画艺术作品',
+    images: [
+      '/portfolio/Illustration/project-1.jpg'
+    ],
+    background: '创作独特风格的插画作品，展现艺术创意。',
+    process: '融合多种艺术表现手法，创作富有个性的插画作品。',
+    outcome: '插画作品在多个平台获得好评，建立了独特的艺术风格。'
+  },
+  {
+    id: 7,
+    title: '食品包装设计',
+    category: '包装',
+    description: '食品产品包装整体设计方案',
+    images: [
+      '/portfolio/Packaging/project-1.jpg'
+    ],
+    background: '为食品品牌设计独特的包装视觉形象。',
+    process: '结合产品特性，设计富有创意的包装视觉元素。',
+    outcome: '包装设计提升了产品的市场竞争力，获得消费者好评。'
+  },
+  {
+    id: 8,
+    title: '化妆品包装设计',
+    category: '包装',
+    description: '化妆品系列包装设计',
+    images: [
+      '/portfolio/Packaging/project-2.jpg'
+    ],
+    background: '为化妆品品牌打造高端的包装设计。',
+    process: '融合时尚元素，设计精致的包装视觉效果。',
+    outcome: '包装设计彰显品牌高端形象，提升了产品价值。'
+  },
+  {
+    id: 9,
+    title: '饮料包装设计',
+    category: '包装',
+    description: '饮料产品包装创意设计',
+    images: [
+      '/portfolio/Packaging/project-3.jpg'
+    ],
+    background: '为饮料品牌设计富有创意的包装。',
+    process: '通过创新的设计理念，打造独特的包装视觉效果。',
+    outcome: '包装设计获得市场认可，提升了品牌影响力。'
+  },
+  {
+    id: 10,
+    title: '礼盒包装设计',
+    category: '包装',
+    description: '高端礼盒包装设计方案',
+    images: [
+      '/portfolio/Packaging/project-4.jpg'
+    ],
+    background: '为高端礼品打造精致的包装设计。',
+    process: '精选材质，融合创意元素，设计富有品质感的礼盒包装。',
+    outcome: '礼盒设计展现高端品质，满足客户需求。'
+  },
+  {
+    id: 11,
+    title: '品牌VI设计',
+    category: 'Vi',
+    description: '企业品牌VI系统设计',
+    images: [
+      '/portfolio/Vi/project-1.jpg'
+    ],
+    background: '为企业打造专业的品牌视觉识别系统。',
+    process: '系统规划品牌视觉元素，建立完整的VI应用规范。',
+    outcome: 'VI系统全面提升品牌形象，获得客户认可。'
+  },
+  {
+    id: 12,
+    title: '餐饮品牌VI',
+    category: 'Vi',
+    description: '餐饮行业品牌视觉识别系统',
+    images: [
+      '/portfolio/Vi/project-2.jpg'
+    ],
+    background: '为餐饮品牌设计独特的视觉识别系统。',
+    process: '深入餐饮文化，设计富有特色的品牌视觉元素。',
+    outcome: '品牌VI系统帮助客户在餐饮市场建立独特形象。'
+  },
+  {
+    id: 13,
+    title: '教育品牌VI',
+    category: 'Vi',
+    description: '教育机构品牌视觉识别系统',
+    images: [
+      '/portfolio/Vi/project-3.jpg',
+      '/portfolio/Vi/project-3-2.jpg',
+      '/portfolio/Vi/project-3-3.jpg'
+    ],
+    background: '为教育机构设计专业的品牌视觉系统。',
+    process: '结合教育理念，设计富有内涵的品牌视觉元素。',
+    outcome: 'VI系统准确传达教育品牌理念，提升品牌价值。'
   }
 ];
 
@@ -219,33 +366,57 @@ const PortfolioDetail = () => {
       </ProjectHeader>
 
       <ImageContainer>
-        <ProjectImage src={project.images[currentImage]} alt={project.title} />
-        <ImageNav>
-          {project.images.map((_, index) => (
-            <ImageDot
+        {project.category === '动画/视频' ? (
+          <ProjectMedia>
+            <video
+              src={project.video}
+              autoPlay
+              loop
+              muted
+              playsInline
+              controls
+              style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+            />
+          </ProjectMedia>
+        ) : (
+          <ProjectMedia>
+            <img src={project.images[currentImage]} alt={project.title} />
+          </ProjectMedia>
+        )}
+        {project.images.length > 1 && (
+          <>
+            {currentImage > 0 && (
+              <ImageArrow
+                direction="left"
+                onClick={() => setCurrentImage(prev => prev - 1)}
+              >
+                ←
+              </ImageArrow>
+            )}
+            {currentImage < project.images.length - 1 && (
+              <ImageArrow
+                direction="right"
+                onClick={() => setCurrentImage(prev => prev + 1)}
+              >
+                →
+              </ImageArrow>
+            )}
+          </>
+        )}
+      </ImageContainer>
+      {project.images.length > 1 && (
+        <ThumbnailContainer>
+          {project.images.map((image, index) => (
+            <Thumbnail
               key={index}
+              src={image}
+              alt={`${project.title} - 预览图 ${index + 1}`}
               active={currentImage === index}
               onClick={() => setCurrentImage(index)}
             />
           ))}
-        </ImageNav>
-        {currentImage > 0 && (
-          <ImageArrow
-            direction="left"
-            onClick={() => setCurrentImage(prev => prev - 1)}
-          >
-            ←
-          </ImageArrow>
-        )}
-        {currentImage < project.images.length - 1 && (
-          <ImageArrow
-            direction="right"
-            onClick={() => setCurrentImage(prev => prev + 1)}
-          >
-            →
-          </ImageArrow>
-        )}
-      </ImageContainer>
+        </ThumbnailContainer>
+      )}
 
       <ContentSection>
         <SectionTitle>项目背景</SectionTitle>

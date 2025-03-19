@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const BlogList = styled.div`
   display: grid;
@@ -15,27 +16,35 @@ const BlogCard = styled(motion.div)`
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  height: 380px;
+  display: flex;
+  flex-direction: column;
 `;
 
 const BlogImage = styled.img`
   width: 100%;
   height: 200px;
   object-fit: cover;
+  flex-shrink: 0;
 `;
 
 const BlogContent = styled.div`
   padding: var(--spacing-md);
-`;
-
-const BlogTitle = styled.h3`
-  margin-bottom: var(--spacing-sm);
-  color: var(--color-primary);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 `;
 
 const BlogExcerpt = styled.p`
   color: var(--color-text);
   font-size: 0.9rem;
   margin-bottom: var(--spacing-sm);
+  flex-grow: 1;
+`;
+
+const BlogTitle = styled.h3`
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-primary);
 `;
 
 const BlogDate = styled.span`
@@ -116,7 +125,7 @@ const ProjectCard = styled(motion.div)`
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: relative;
   width: 100%;
-  height: ${props => props.isMain ? '600px' : '290px'};
+  height: ${({ isMain }) => isMain ? '600px' : '290px'};
 `;
 
 const ProjectImage = styled.img`
@@ -162,19 +171,19 @@ const Home = () => {
       id: 1,
       title: '电商App界面设计',
       description: '为新零售电商平台打造的现代化移动应用界面设计',
-      image: '/portfolio/project1.jpg'
+      image: '/portfolio/placeholder-1.jpg'
     },
     {
       id: 2,
       title: '品牌视觉识别系统',
       description: '为科技初创公司设计的完整品牌视觉识别系统',
-      image: '/portfolio/project2.jpg'
+      image: '/portfolio/placeholder-2.jpg'
     },
     {
       id: 3,
-      title: '插画系列作品',
-      description: '以未来主义为主题的商业插画系列',
-      image: '/portfolio/project3.jpg'
+      title: '包装设计系列',
+      description: '创新的产品包装设计，融合传统与现代美学',
+      image: '/portfolio/placeholder-3.jpg'
     }
   ];
 
@@ -227,8 +236,8 @@ const Home = () => {
         <SectionTitle>最新博客</SectionTitle>
         <BlogList>
           {blogPosts.map((post) => (
+            <Link to={`/blog/${post.id}`} key={post.id} style={{ textDecoration: 'none' }}>
             <BlogCard
-              key={post.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
@@ -241,6 +250,7 @@ const Home = () => {
                 <BlogDate>{post.date}</BlogDate>
               </BlogContent>
             </BlogCard>
+          </Link>
           ))}
         </BlogList>
       </FeaturedSection>
