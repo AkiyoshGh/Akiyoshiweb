@@ -31,14 +31,24 @@ const ProjectHeader = styled.div`
 `;
 
 const ProjectTitle = styled.h1`
-  font-size: 2.5rem;
+  font-size: 2rem;
+  font-weight: bold;
   color: var(--color-primary);
   margin-bottom: var(--spacing-md);
+  line-height: 1.2;
 `;
 
 const ProjectCategory = styled.span`
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  font-weight: 500;
   color: var(--color-accent);
+  display: block;
+  margin-bottom: var(--spacing-sm);
+`;
+
+const ProjectDate = styled.span`
+  font-size: 1.1rem;
+  color: var(--color-text);
   display: block;
   margin-bottom: var(--spacing-lg);
 `;
@@ -165,21 +175,25 @@ const SectionContent = styled.p`
 const projects = [
   {
     id: 1,
-    title: '动画效果设计',
-    category: '动画/视频',
-    description: '创意动画效果设计作品',
+    title: '日本仓敷市井盖设计',
+    category: '插画',
+    date: '2020',
+    description: '通过对日本仓敷市的文化考察而构思的一组井盖插画设计。其中有从一轮棉花开始的仓敷物语、因鲱鱼肥料交易而繁荣的历史、还有弥生后期神秘的楯築遗迹。这些文化的考察，加深了对仓敷这个城市的了解。',
     images: [
-      '/portfolio/Animation_Video/project-1.jpg'
+      '/portfolio/Illustration/project-1.jpg',
+      '/portfolio/Illustration/project-1-2.jpg',
+      '/portfolio/Illustration/project-1-3.jpg',
+      '/portfolio/Illustration/project-1-4.jpg'
     ],
-    video: '/portfolio/Animation_Video/project-1.mp4',
-    background: '该项目旨在通过创意动画效果提升用户体验和视觉表现力。',
-    process: '从概念设计到最终实现，我们运用了多种动画技术和创意表现手法。',
-    outcome: '最终呈现的动画效果获得客户高度认可，并在多个场景中得到应用。'
+    background: '通过对日本仓敷市的文化考察而构思的一组井盖插画设计。',
+    process: '深入研究仓敷市的历史文化，从棉花产业、鲱鱼贸易到楯築遗迹多个角度进行创作。',
+    outcome: '完成了一组体现仓敷市特色的井盖插画设计，展现了城市的文化底蕴。'
   },
   {
     id: 2,
     title: '电商App界面设计',
     category: 'App/Web',
+    date: '2021',
     description: '为新零售电商平台打造的现代化移动应用界面设计',
     images: [
       '/portfolio/App_Web/project-1.jpg'
@@ -192,6 +206,7 @@ const projects = [
     id: 3,
     title: '企业品牌形象设计',
     category: '形象设计',
+    date: '2021',
     description: '现代企业品牌视觉形象整体解决方案',
     images: [
       '/portfolio/Brand_Image/project-1.jpg',
@@ -205,6 +220,7 @@ const projects = [
     id: 4,
     title: '企业宣传册设计',
     category: '宣传册/书籍',
+    date: '2022',
     description: '企业宣传册整体设计方案',
     images: [
       '/portfolio/Brochure_Book/project-1.jpg'
@@ -217,6 +233,7 @@ const projects = [
     id: 5,
     title: '产品画册设计',
     category: '宣传册/书籍',
+    date: '2022',
     description: '产品展示画册设计方案',
     images: [
       '/portfolio/Brochure_Book/project-2.jpg'
@@ -227,20 +244,20 @@ const projects = [
   },
   {
     id: 6,
-    title: '创意插画设计',
-    category: '插画',
-    description: '独特风格的创意插画艺术作品',
-    images: [
-      '/portfolio/Illustration/project-1.jpg'
-    ],
-    background: '创作独特风格的插画作品，展现艺术创意。',
-    process: '融合多种艺术表现手法，创作富有个性的插画作品。',
-    outcome: '插画作品在多个平台获得好评，建立了独特的艺术风格。'
+    title: '企业宣传视频',
+    category: '动画/视频',
+    date: '2023',
+    description: '生动展现企业文化与价值理念的宣传片制作',
+    video: '/portfolio/Animation_Video/project-1.mp4',
+    background: '为企业打造专业的宣传视频，展现企业文化和价值理念。',
+    process: '从前期策划到后期制作，全方位打造专业的企业宣传片。',
+    outcome: '宣传视频获得客户好评，有效传达了企业文化和品牌形象。'
   },
   {
     id: 7,
     title: '食品包装设计',
     category: '包装',
+    date: '2021',
     description: '食品产品包装整体设计方案',
     images: [
       '/portfolio/Packaging/project-1.jpg'
@@ -253,6 +270,7 @@ const projects = [
     id: 8,
     title: '化妆品包装设计',
     category: '包装',
+    date: '2022',
     description: '化妆品系列包装设计',
     images: [
       '/portfolio/Packaging/project-2.jpg'
@@ -265,6 +283,7 @@ const projects = [
     id: 9,
     title: '饮料包装设计',
     category: '包装',
+    date: '2022',
     description: '饮料产品包装创意设计',
     images: [
       '/portfolio/Packaging/project-3.jpg'
@@ -277,6 +296,7 @@ const projects = [
     id: 10,
     title: '礼盒包装设计',
     category: '包装',
+    date: '2023',
     description: '高端礼盒包装设计方案',
     images: [
       '/portfolio/Packaging/project-4.jpg'
@@ -289,6 +309,7 @@ const projects = [
     id: 11,
     title: '品牌VI设计',
     category: 'Vi',
+    date: '2021',
     description: '企业品牌VI系统设计',
     images: [
       '/portfolio/Vi/project-1.jpg'
@@ -301,6 +322,7 @@ const projects = [
     id: 12,
     title: '餐饮品牌VI',
     category: 'Vi',
+    date: '2022',
     description: '餐饮行业品牌视觉识别系统',
     images: [
       '/portfolio/Vi/project-2.jpg'
@@ -313,6 +335,7 @@ const projects = [
     id: 13,
     title: '教育品牌VI',
     category: 'Vi',
+    date: '2023',
     description: '教育机构品牌视觉识别系统',
     images: [
       '/portfolio/Vi/project-3.jpg',
@@ -320,8 +343,8 @@ const projects = [
       '/portfolio/Vi/project-3-3.jpg'
     ],
     background: '为教育机构设计专业的品牌视觉系统。',
-    process: '结合教育理念，设计富有内涵的品牌视觉元素。',
-    outcome: 'VI系统准确传达教育品牌理念，提升品牌价值。'
+    process: '结合教育理念，设计富有内涵的品牌视觉系统。',
+    outcome: '完成了专业的教育品牌VI系统，提升了品牌形象。'
   }
 ];
 
@@ -336,81 +359,70 @@ const PortfolioDetail = () => {
       <DetailContainer
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5 }}
       >
         <BackButton onClick={() => navigate('/portfolio')}>
-          ← 返回作品集
+          ← 返回作品列表
         </BackButton>
-        <h1>作品未找到</h1>
+        <ProjectHeader>
+          <ProjectTitle>作品未找到</ProjectTitle>
+          <ProjectCategory>该作品可能已被移除或链接无效</ProjectCategory>
+        </ProjectHeader>
       </DetailContainer>
     );
   }
+
+  const handlePrevImage = () => {
+    setCurrentImage((prev) => (prev === 0 ? project.images.length - 1 : prev - 1));
+  };
+
+  const handleNextImage = () => {
+    setCurrentImage((prev) => (prev === project.images.length - 1 ? 0 : prev + 1));
+  };
 
   return (
     <DetailContainer
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
     >
-      <BackButton
-        onClick={() => navigate('/portfolio')}
-        whileHover={{ x: -5 }}
-        whileTap={{ scale: 0.95 }}
-      >
-        ← 返回作品集
+      <BackButton onClick={() => navigate('/portfolio')}>
+        ← 返回作品列表
       </BackButton>
 
       <ProjectHeader>
         <ProjectTitle>{project.title}</ProjectTitle>
         <ProjectCategory>{project.category}</ProjectCategory>
+        <ProjectDate>{project.date}</ProjectDate>
       </ProjectHeader>
 
       <ImageContainer>
-        {project.category === '动画/视频' ? (
-          <ProjectMedia>
-            <video
-              src={project.video}
-              autoPlay
-              loop
-              muted
-              playsInline
-              controls
-              style={{ width: '100%', height: '100%', objectFit: 'contain' }}
-            />
-          </ProjectMedia>
-        ) : (
-          <ProjectMedia>
+        <ProjectMedia>
+          {project.video ? (
+            <video src={project.video} controls />
+          ) : (
             <img src={project.images[currentImage]} alt={project.title} />
-          </ProjectMedia>
-        )}
-        {project.images.length > 1 && (
+          )}
+        </ProjectMedia>
+        {!project.video && project.images.length > 1 && (
           <>
-            {currentImage > 0 && (
-              <ImageArrow
-                direction="left"
-                onClick={() => setCurrentImage(prev => prev - 1)}
-              >
-                ←
-              </ImageArrow>
-            )}
-            {currentImage < project.images.length - 1 && (
-              <ImageArrow
-                direction="right"
-                onClick={() => setCurrentImage(prev => prev + 1)}
-              >
-                →
-              </ImageArrow>
-            )}
+            <ImageArrow direction="left" onClick={handlePrevImage}>
+              ←
+            </ImageArrow>
+            <ImageArrow direction="right" onClick={handleNextImage}>
+              →
+            </ImageArrow>
           </>
         )}
       </ImageContainer>
-      {project.images.length > 1 && (
+
+      {!project.video && project.images.length > 1 && (
         <ThumbnailContainer>
           {project.images.map((image, index) => (
             <Thumbnail
               key={index}
               src={image}
-              alt={`${project.title} - 预览图 ${index + 1}`}
+              alt={`${project.title} - ${index + 1}`}
               active={currentImage === index}
               onClick={() => setCurrentImage(index)}
             />
@@ -419,18 +431,21 @@ const PortfolioDetail = () => {
       )}
 
       <ContentSection>
-        <SectionTitle>项目背景</SectionTitle>
-        <SectionContent>{project.background}</SectionContent>
-      </ContentSection>
-
-      <ContentSection>
-        <SectionTitle>设计过程</SectionTitle>
-        <SectionContent>{project.process}</SectionContent>
-      </ContentSection>
-
-      <ContentSection>
-        <SectionTitle>项目成果</SectionTitle>
-        <SectionContent>{project.outcome}</SectionContent>
+        <SectionContent>
+          {project.description}
+          {project.background && <>
+            <br /><br />
+            {project.background}
+          </>}
+          {project.process && <>
+            <br /><br />
+            {project.process}
+          </>}
+          {project.outcome && <>
+            <br /><br />
+            {project.outcome}
+          </>}
+        </SectionContent>
       </ContentSection>
     </DetailContainer>
   );

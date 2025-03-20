@@ -124,8 +124,9 @@ const ProjectCard = styled(motion.div)`
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: relative;
+  cursor: pointer;
+  aspect-ratio: 16/9;
   width: 100%;
-  height: ${({ isMain }) => isMain ? '600px' : '290px'};
 `;
 
 const ProjectImage = styled.img`
@@ -133,6 +134,7 @@ const ProjectImage = styled.img`
   height: 100%;
   object-fit: cover;
   transition: transform 0.3s ease;
+  display: block;
 
   ${ProjectCard}:hover & {
     transform: scale(1.1);

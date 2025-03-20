@@ -46,7 +46,7 @@ const FilterButton = styled(motion.button)`
 
 const ProjectGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--spacing-lg);
 `;
 
@@ -106,10 +106,7 @@ const ProjectCategory = styled.span`
   display: block;
 `;
 
-const ProjectDescription = styled.p`
-  color: var(--color-text);
-  font-size: 0.9rem;
-`;
+
 
 const Portfolio = () => {
   const navigate = useNavigate();
@@ -119,91 +116,192 @@ const Portfolio = () => {
 
   const projects = [
     {
-      id: 1,
-      title: '动画效果设计',
-      category: '动画/视频',
-      description: '创意动画效果设计作品',
-      images: [
-        '/portfolio/Animation_Video/project-1.jpg'
-      ],
-      video: '/portfolio/Animation_Video/project-1.mp4'
-    },
-    {
-      id: 2,
-      title: '电商App界面设计',
-      category: 'App/Web',
-      description: '以用户体验为核心的电商平台界面设计，提升购物体验',
-      image: '/portfolio/App_Web/project-1.jpg'
-    },
-    {
-      id: 3,
-      title: '企业品牌形象设计',
-      category: '形象设计',
-      description: '打造独特的品牌视觉语言，塑造专业企业形象',
-      image: '/portfolio/Brand_Image/project-1.jpg'
-    },
-    {
-      id: 4,
-      title: '企业宣传册设计',
-      category: '宣传册/书籍',
-      description: '精致的排版设计，展现企业专业形象与价值主张',
-      image: '/portfolio/Brochure_Book/project-1.jpg'
-    },
-    {
-      id: 5,
-      title: '产品画册设计',
-      category: '宣传册/书籍',
-      description: '优雅的版式与精美的图片展示，突出产品特色',
-      image: '/portfolio/Brochure_Book/project-2.jpg'
-    },
-    {
-      id: 6,
-      title: '创意插画设计',
-      category: '插画',
-      description: '富有创意的手绘插画，为品牌传达独特艺术魅力',
-      image: '/portfolio/Illustration/project-1.jpg'
-    },
-    {
-      id: 7,
-      title: '食品包装设计',
-      category: '包装',
-      description: '新颖的包装设计，让产品在货架上脱颖而出',
-      image: '/portfolio/Packaging/project-1.jpg'
-    },
-    {
-      id: 8,
-      title: '化妆品包装设计',
-      category: '包装',
-      description: '优雅精致的包装设计，彰显品牌高端形象',
-      image: '/portfolio/Packaging/project-2.jpg'
-    },
-    {
-      id: 9,
-      title: '饮料包装设计',
-      category: '包装',
-      description: '时尚清新的包装设计，提升产品市场竞争力',
-      image: '/portfolio/Packaging/project-3.jpg'
-    },
-    {
-      id: 10,
-      title: '礼盒包装设计',
-      category: '包装',
-      description: '精致典雅的礼盒设计，传递品牌价值与情感',
-      image: '/portfolio/Packaging/project-4.jpg'
-    },
-    {
-      id: 11,
-      title: '品牌VI设计',
+      id: 15,
+      title: '品牌VI设计7',
       category: 'Vi',
-      description: '全方位的品牌视觉识别系统设计，构建品牌形象',
-      image: '/portfolio/Vi/project-1.jpg'
+      description: '企业品牌视觉识别系统设计',
+      date: '2023',
+      image: '/portfolio/Vi/project-7.jpg',
+      images: [
+        '/portfolio/Vi/project-7.jpg',
+        '/portfolio/Vi/project-7-2.jpg',
+        '/portfolio/Vi/project-7-3.jpg',
+        '/portfolio/Vi/project-7-4.jpg'
+      ]
+    },
+    {
+      id: 14,
+      title: '品牌VI设计6',
+      category: 'Vi',
+      description: '企业品牌视觉识别系统设计',
+      date: '2023',
+      image: '/portfolio/Vi/project-6.jpg',
+      images: [
+        '/portfolio/Vi/project-6.jpg',
+        '/portfolio/Vi/project-6-2.jpg',
+        '/portfolio/Vi/project-6-3.jpg',
+        '/portfolio/Vi/project-6-4.jpg'
+      ]
+    },
+    {
+      id: 13,
+      title: '品牌VI设计5',
+      category: 'Vi',
+      description: '企业品牌视觉识别系统设计',
+      date: '2023',
+      image: '/portfolio/Vi/project-5.jpg',
+      images: [
+        '/portfolio/Vi/project-5.jpg',
+        '/portfolio/Vi/project-5-1.jpg',
+        '/portfolio/Vi/project-5-2.jpg',
+        '/portfolio/Vi/project-5-3.jpg',
+        '/portfolio/Vi/project-5-4.jpg'
+      ]
     },
     {
       id: 12,
-      title: '餐饮品牌VI',
+      title: '品牌VI设计4',
       category: 'Vi',
-      description: '特色鲜明的餐饮品牌设计，打造独特品牌体验',
-      image: '/portfolio/Vi/project-2.jpg'
+      description: '企业品牌视觉识别系统设计',
+      date: '2022',
+      image: '/portfolio/Vi/project-4.jpg',
+      images: [
+        '/portfolio/Vi/project-4.jpg',
+        '/portfolio/Vi/project-4-2.jpg',
+        '/portfolio/Vi/project-4-3.jpg'
+      ]
+    },
+    {
+      id: 11,
+      title: '品牌VI设计3',
+      category: 'Vi',
+      description: '企业品牌视觉识别系统设计',
+      date: '2022',
+      image: '/portfolio/Vi/project-3.jpg',
+      images: [
+        '/portfolio/Vi/project-3.jpg',
+        '/portfolio/Vi/project-3-2.jpg'
+      ]
+    },
+    {
+      id: 10,
+      title: '品牌VI设计2',
+      category: 'Vi',
+      description: '企业品牌视觉识别系统设计',
+      date: '2022',
+      image: '/portfolio/Vi/project-2.jpg',
+      images: [
+        '/portfolio/Vi/project-2.jpg',
+        '/portfolio/Vi/project-2-2.jpg',
+        '/portfolio/Vi/project-2-3.jpg'
+      ]
+    },
+    {
+      id: 9,
+      title: '品牌VI设计1',
+      category: 'Vi',
+      description: '企业品牌视觉识别系统设计',
+      date: '2021',
+      image: '/portfolio/Vi/project-1.jpg',
+      images: [
+        '/portfolio/Vi/project-1.jpg',
+        '/portfolio/Vi/project-1-2.jpg',
+        '/portfolio/Vi/project-1-3.jpg'
+      ]
+    },
+    {
+      id: 8,
+      title: '企业宣传视频',
+      category: '动画/视频',
+      description: '生动展现企业文化与价值理念的宣传片制作',
+      date: '2023',
+      video: '/portfolio/Animation_Video/project-1.mp4',
+      preview_image: '/portfolio/Animation_Video/project-1-preview.jpg'
+    },
+    {
+      id: 7,
+      title: '宣传册设计3',
+      category: '宣传册/书籍',
+      description: '企业宣传册设计方案',
+      date: '2023',
+      image: '/portfolio/Brochure_Book/project-3.jpg',
+      images: [
+        '/portfolio/Brochure_Book/project-3.jpg'
+      ]
+    },
+    {
+      id: 6,
+      title: '宣传册设计2',
+      category: '宣传册/书籍',
+      description: '产品宣传册设计方案',
+      date: '2022',
+      image: '/portfolio/Brochure_Book/project-2.jpg',
+      images: [
+        '/portfolio/Brochure_Book/project-2.jpg',
+        '/portfolio/Brochure_Book/project-2-2.jpg',
+        '/portfolio/Brochure_Book/project-2-3.jpg'
+      ]
+    },
+    {
+      id: 5,
+      title: '宣传册设计1',
+      category: '宣传册/书籍',
+      description: '企业宣传册设计方案',
+      date: '2022',
+      image: '/portfolio/Brochure_Book/project-1.jpg',
+      images: [
+        '/portfolio/Brochure_Book/project-1.jpg',
+        '/portfolio/Brochure_Book/project-1-2.jpg',
+        '/portfolio/Brochure_Book/project-1-3.jpg'
+      ]
+    },
+    {
+      id: 4,
+      title: '品牌形象设计2',
+      category: '形象设计',
+      description: '企业品牌形象设计方案',
+      date: '2022',
+      image: '/portfolio/Brand_Image/project-2.jpg',
+      images: [
+        '/portfolio/Brand_Image/project-2.jpg'
+      ]
+    },
+    {
+      id: 3,
+      title: '品牌形象设计1',
+      category: '形象设计',
+      description: '企业品牌形象设计方案',
+      date: '2021',
+      image: '/portfolio/Brand_Image/project-1.jpg',
+      images: [
+        '/portfolio/Brand_Image/project-1.jpg',
+        '/portfolio/Brand_Image/project-1-2.jpg'
+      ]
+    },
+    {
+      id: 2,
+      title: 'App界面设计',
+      category: 'App/Web',
+      description: '移动应用界面设计方案',
+      date: '2021',
+      image: '/portfolio/App_Web/project-1.jpg',
+      images: [
+        '/portfolio/App_Web/project-1.jpg'
+      ]
+    },
+    {
+      id: 1,
+      title: '插画设计',
+      category: '插画',
+      description: '创意插画设计作品',
+      date: '2021',
+      image: '/portfolio/Illustration/project-1.jpg',
+      images: [
+        '/portfolio/Illustration/project-1.jpg',
+        '/portfolio/Illustration/project-1-2.jpg',
+        '/portfolio/Illustration/project-1-3.jpg',
+        '/portfolio/Illustration/project-1-4.jpg'
+      ]
     }
   ];
 
@@ -247,7 +345,6 @@ const Portfolio = () => {
             <ProjectInfo>
               <ProjectTitle>{project.title}</ProjectTitle>
               <ProjectCategory>{project.category}</ProjectCategory>
-              <ProjectDescription>{project.description}</ProjectDescription>
             </ProjectInfo>
           </ProjectCard>
         ))}

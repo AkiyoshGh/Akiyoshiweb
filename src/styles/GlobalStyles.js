@@ -86,6 +86,22 @@ const GlobalStyles = createGlobalStyle`
     height: auto;
   }
 
+  .container {
+    max-width: min(var(--breakpoint-desktop), 90%);
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  main {
+    margin-top: 80px;
+    min-height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+  }
+
   /* 响应式布局基础样式 */
   @media (max-width: 768px) {
     html {

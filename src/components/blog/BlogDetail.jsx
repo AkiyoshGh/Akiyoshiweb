@@ -4,9 +4,7 @@ import { motion } from 'framer-motion';
 import { useParams, useNavigate } from 'react-router-dom';
 
 const BlogDetailContainer = styled.article`
-  max-width: 800px;
-  margin: 0 auto;
-  padding: calc(var(--spacing-xl) * 2) var(--spacing-lg);
+  padding: calc(var(--spacing-xl) * 1.5) var(--spacing-xl);
 `;
 
 const BlogHeader = styled.header`

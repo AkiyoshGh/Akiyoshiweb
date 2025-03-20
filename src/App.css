@@ -1,9 +1,7 @@
 #root {
-  width: 100%;
+  width: 90%;
   max-width: var(--breakpoint-desktop);
   margin: 0 auto;
-  padding: var(--spacing-lg);
-  text-align: center;
 }
 
 .logo {
