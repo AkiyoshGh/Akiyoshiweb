@@ -86,7 +86,7 @@ const About = () => {
   const services = [
     {
       title: '品牌设计',
-      description: '从品牌策略到视觉识别系统的全方位设计服务，帮助企业建立独特的品牌形象。'
+      description: '从品牌策略到视觉识别系统的全方位设计服务，创造独有视觉体验。'
     },
     {
       title: 'UI/UX设计',
@@ -97,8 +97,8 @@ const About = () => {
       description: '创作独特的商业插画，为品牌注入艺术气息和视觉活力。'
     },
     {
-      title: '动效设计',
-      description: '通过精心设计的动画效果，提升用户体验和界面表现力。'
+      title: '包装设计',
+      description: '了解工艺材质，是懂产品的包装品牌设计。'
     }
   ];
 
@@ -107,7 +107,7 @@ const About = () => {
       <AboutHeader>
         <Title>关于我</Title>
         <Subtitle>
-          热衷于创造独特的视觉体验和有价值的设计解决方案
+          热衷于创造独特的视觉体验和有价值的设计
         </Subtitle>
       </AboutHeader>
 
@@ -115,8 +115,8 @@ const About = () => {
         <ProfileSection>
           <ProfileImage src="/images/profile.jpg" alt="Akiyoshi" />
           <ProfileBio>
-            你好，我是Akiyoshi，一名拥有多年经验的设计师。我专注于品牌设计、UI/UX设计和插画创作，
-            致力于为客户提供专业的设计解决方案。我相信优秀的设计不仅能传达信息，更能创造价值，
+            你好，我是Akiyoshi。我一名平面设计师。专注于各类文化品牌设计、创意创作，
+            致力打磨优秀作品。我相信优秀的设计不仅能传达信息，更能创造价值，
             期待能与您合作，共同打造出色的作品。
           </ProfileBio>
         </ProfileSection>

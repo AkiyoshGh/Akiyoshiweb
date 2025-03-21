@@ -1,11 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400">
-  <rect width="800" height="400" fill="#f5f5f5"/>
-  <text x="400" y="200" font-family="Arial" font-size="24" fill="#333" text-anchor="middle" dominant-baseline="middle">动效设计</text>
-  <path d="M300,200 L500,200" stroke="#4a90e2" stroke-width="3" fill="none">
-    <animate attributeName="d" dur="2s" repeatCount="indefinite"
-      values="M300,200 L500,200;M300,180 Q400,220 500,180;M300,200 L500,200"/>
-  </path>
-  <circle cx="400" cy="200" r="30" fill="#4a90e2" opacity="0.2">
-    <animate attributeName="r" values="30;40;30" dur="2s" repeatCount="indefinite"/>
-  </circle>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 27.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 800 400" style="enable-background:new 0 0 800 400;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#F5F5F5;}
+	.st1{fill:#333333;}
+	.st2{font-family:'AdobeSongStd-Light-GBpc-EUC-H';}
+	.st3{font-size:24px;}
+	.st4{fill:none;stroke:#4A90E2;stroke-width:3;}
+	.st5{opacity:0.2;fill:#4A90E2;enable-background:new    ;}
+</style>
+<rect y="0" class="st0" width="800" height="400"/>
+<text transform="matrix(1 0 0 1 364 200)" class="st1 st2 st3">测试ing</text>
+<path class="st4" d="M300,200h200">
+<animate  accumulate="none" additive="replace" attributeName="d" calcMode="linear" dur="2s" fill="remove" repeatCount="indefinite" restart="always" values="M300,200 L500,200;M300,180 Q400,220 500,180;M300,200 L500,200">
+		</animate>
+</path>
+<circle class="st5" cx="400" cy="200" r="30">
+<animate  accumulate="none" additive="replace" attributeName="r" calcMode="linear" dur="2s" fill="remove" repeatCount="indefinite" restart="always" values="30;40;30">
+	</animate>
+</circle>
 </svg>

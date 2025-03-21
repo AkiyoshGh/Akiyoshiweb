@@ -30,29 +30,29 @@ const Blog = () => {
   const posts = [
     {
       id: 1,
-      title: '设计工作室的品牌塑造：从概念到实现',
-      excerpt: '探讨如何为设计工作室建立独特的品牌形象，以及如何通过视觉设计传达工作室的核心价值。',
+      title: '测试中',
+      excerpt: '此页面还在测试中，敬请期待',
       date: '2024-01-15',
       image: '/blog/brand.svg'
     },
     {
       id: 2,
-      title: '数字时代的用户体验设计',
-      excerpt: '深入分析数字产品的用户体验设计原则，以及如何创造出既美观又实用的界面设计。',
+      title: '测试中2',
+      excerpt: '此页面还在测试中，敬请期待',
       date: '2024-01-10',
       image: '/blog/trend.svg'
     },
     {
       id: 3,
-      title: '创意插画在商业设计中的应用',
-      excerpt: '分享如何将创意插画融入商业设计项目，为品牌注入独特的艺术气息和视觉表现力。',
+      title: '测试中3',
+      excerpt: '此页面还在测试中，敬请期待。',
       date: '2024-01-05',
       image: '/blog/illustration.svg'
     },
     {
       id: 4,
-      title: '动效设计：提升用户交互体验',
-      excerpt: '探索如何通过动效设计增强用户界面的交互体验，使产品更具生命力和吸引力。',
+      title: '测试中4',
+      excerpt: '此页面还在测试中，敬请期待。',
       date: '2024-01-01',
       image: '/blog/animation.svg'
     }

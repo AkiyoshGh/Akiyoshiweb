@@ -171,20 +171,20 @@ const Home = () => {
   const projects = [
     {
       id: 1,
-      title: '电商App界面设计',
-      description: '为新零售电商平台打造的现代化移动应用界面设计',
+      title: 'App界面设计',
+      description: '加计美术馆项目移动应用界面设计',
       image: '/portfolio/placeholder-1.jpg'
     },
     {
       id: 2,
-      title: '品牌视觉识别系统',
-      description: '为科技初创公司设计的完整品牌视觉识别系统',
+      title: '品牌VI识别系统',
+      description: '加计美术馆项目品牌视觉识别系统',
       image: '/portfolio/placeholder-2.jpg'
     },
     {
       id: 3,
-      title: '包装设计系列',
-      description: '创新的产品包装设计，融合传统与现代美学',
+      title: '课题项目宣传册',
+      description: '以折纸为课题策划的品牌项目，探究折纸的创新趣味',
       image: '/portfolio/placeholder-3.jpg'
     }
   ];
@@ -192,22 +192,22 @@ const Home = () => {
   const blogPosts = [
     {
       id: 1,
-      title: '设计趋势探索：2024年UI设计新方向',
-      excerpt: '探讨最新的用户界面设计趋势，以及如何在实际项目中应用这些创新理念。',
+      title: '该板块测试中',
+      excerpt: '测试中，敬请期待。',
       date: '2024-01-15',
       image: '/blog/trend.svg'
     },
     {
       id: 2,
-      title: '品牌设计的艺术：从理念到视觉',
-      excerpt: '深入解析品牌设计的核心要素，以及如何打造独特的品牌视觉识别系统。',
+      title: '该板块测试中',
+      excerpt: '测试中，敬请期待。。',
       date: '2024-01-10',
       image: '/blog/brand.svg'
     },
     {
       id: 3,
-      title: '插画设计：讲述品牌故事的艺术',
-      excerpt: '探索商业插画在品牌传播中的应用，以及如何通过插画提升品牌价值。',
+      title: '该板块测试中',
+      excerpt: '测试中，敬请期待。。',
       date: '2024-01-05',
       image: '/blog/illustration.svg'
     }

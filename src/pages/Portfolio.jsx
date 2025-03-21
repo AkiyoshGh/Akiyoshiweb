@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
@@ -70,6 +70,7 @@ const ProjectMedia = styled.div`
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
+    loading: lazy;
   }
 
   ${ProjectCard}:hover img,
@@ -111,203 +112,34 @@ const ProjectCategory = styled.span`
 const Portfolio = () => {
   const navigate = useNavigate();
   const [activeFilter, setActiveFilter] = useState('全部');
+  const [projects] = useState(window.projects);
 
-  const filters = ['全部', 'Vi', 'App/Web', '动画/视频', '宣传册/书籍', '形象设计', '包装', '插画'];
+  const filteredProjects = React.useMemo(() => 
+    activeFilter === '全部' ? projects : projects.filter(project => project.category === activeFilter)
+  , [activeFilter, projects]);
 
-  const projects = [
-    {
-      id: 15,
-      title: '品牌VI设计7',
-      category: 'Vi',
-      description: '企业品牌视觉识别系统设计',
-      date: '2023',
-      image: '/portfolio/Vi/project-7.jpg',
-      images: [
-        '/portfolio/Vi/project-7.jpg',
-        '/portfolio/Vi/project-7-2.jpg',
-        '/portfolio/Vi/project-7-3.jpg',
-        '/portfolio/Vi/project-7-4.jpg'
-      ]
-    },
-    {
-      id: 14,
-      title: '品牌VI设计6',
-      category: 'Vi',
-      description: '企业品牌视觉识别系统设计',
-      date: '2023',
-      image: '/portfolio/Vi/project-6.jpg',
-      images: [
-        '/portfolio/Vi/project-6.jpg',
-        '/portfolio/Vi/project-6-2.jpg',
-        '/portfolio/Vi/project-6-3.jpg',
-        '/portfolio/Vi/project-6-4.jpg'
-      ]
-    },
-    {
-      id: 13,
-      title: '品牌VI设计5',
-      category: 'Vi',
-      description: '企业品牌视觉识别系统设计',
-      date: '2023',
-      image: '/portfolio/Vi/project-5.jpg',
-      images: [
-        '/portfolio/Vi/project-5.jpg',
-        '/portfolio/Vi/project-5-1.jpg',
-        '/portfolio/Vi/project-5-2.jpg',
-        '/portfolio/Vi/project-5-3.jpg',
-        '/portfolio/Vi/project-5-4.jpg'
-      ]
-    },
-    {
-      id: 12,
-      title: '品牌VI设计4',
-      category: 'Vi',
-      description: '企业品牌视觉识别系统设计',
-      date: '2022',
-      image: '/portfolio/Vi/project-4.jpg',
-      images: [
-        '/portfolio/Vi/project-4.jpg',
-        '/portfolio/Vi/project-4-2.jpg',
-        '/portfolio/Vi/project-4-3.jpg'
-      ]
-    },
-    {
-      id: 11,
-      title: '品牌VI设计3',
-      category: 'Vi',
-      description: '企业品牌视觉识别系统设计',
-      date: '2022',
-      image: '/portfolio/Vi/project-3.jpg',
-      images: [
-        '/portfolio/Vi/project-3.jpg',
-        '/portfolio/Vi/project-3-2.jpg'
-      ]
-    },
-    {
-      id: 10,
-      title: '品牌VI设计2',
-      category: 'Vi',
-      description: '企业品牌视觉识别系统设计',
-      date: '2022',
-      image: '/portfolio/Vi/project-2.jpg',
-      images: [
-        '/portfolio/Vi/project-2.jpg',
-        '/portfolio/Vi/project-2-2.jpg',
-        '/portfolio/Vi/project-2-3.jpg'
-      ]
-    },
-    {
-      id: 9,
-      title: '品牌VI设计1',
-      category: 'Vi',
-      description: '企业品牌视觉识别系统设计',
-      date: '2021',
-      image: '/portfolio/Vi/project-1.jpg',
-      images: [
-        '/portfolio/Vi/project-1.jpg',
-        '/portfolio/Vi/project-1-2.jpg',
-        '/portfolio/Vi/project-1-3.jpg'
-      ]
-    },
-    {
-      id: 8,
-      title: '企业宣传视频',
-      category: '动画/视频',
-      description: '生动展现企业文化与价值理念的宣传片制作',
-      date: '2023',
-      video: '/portfolio/Animation_Video/project-1.mp4',
-      preview_image: '/portfolio/Animation_Video/project-1-preview.jpg'
-    },
-    {
-      id: 7,
-      title: '宣传册设计3',
-      category: '宣传册/书籍',
-      description: '企业宣传册设计方案',
-      date: '2023',
-      image: '/portfolio/Brochure_Book/project-3.jpg',
-      images: [
-        '/portfolio/Brochure_Book/project-3.jpg'
-      ]
-    },
-    {
-      id: 6,
-      title: '宣传册设计2',
-      category: '宣传册/书籍',
-      description: '产品宣传册设计方案',
-      date: '2022',
-      image: '/portfolio/Brochure_Book/project-2.jpg',
-      images: [
-        '/portfolio/Brochure_Book/project-2.jpg',
-        '/portfolio/Brochure_Book/project-2-2.jpg',
-        '/portfolio/Brochure_Book/project-2-3.jpg'
-      ]
-    },
-    {
-      id: 5,
-      title: '宣传册设计1',
-      category: '宣传册/书籍',
-      description: '企业宣传册设计方案',
-      date: '2022',
-      image: '/portfolio/Brochure_Book/project-1.jpg',
-      images: [
-        '/portfolio/Brochure_Book/project-1.jpg',
-        '/portfolio/Brochure_Book/project-1-2.jpg',
-        '/portfolio/Brochure_Book/project-1-3.jpg'
-      ]
-    },
-    {
-      id: 4,
-      title: '品牌形象设计2',
-      category: '形象设计',
-      description: '企业品牌形象设计方案',
-      date: '2022',
-      image: '/portfolio/Brand_Image/project-2.jpg',
-      images: [
-        '/portfolio/Brand_Image/project-2.jpg'
-      ]
-    },
-    {
-      id: 3,
-      title: '品牌形象设计1',
-      category: '形象设计',
-      description: '企业品牌形象设计方案',
-      date: '2021',
-      image: '/portfolio/Brand_Image/project-1.jpg',
-      images: [
-        '/portfolio/Brand_Image/project-1.jpg',
-        '/portfolio/Brand_Image/project-1-2.jpg'
-      ]
-    },
-    {
-      id: 2,
-      title: 'App界面设计',
-      category: 'App/Web',
-      description: '移动应用界面设计方案',
-      date: '2021',
-      image: '/portfolio/App_Web/project-1.jpg',
-      images: [
-        '/portfolio/App_Web/project-1.jpg'
-      ]
-    },
-    {
-      id: 1,
-      title: '插画设计',
-      category: '插画',
-      description: '创意插画设计作品',
-      date: '2021',
-      image: '/portfolio/Illustration/project-1.jpg',
-      images: [
-        '/portfolio/Illustration/project-1.jpg',
-        '/portfolio/Illustration/project-1-2.jpg',
-        '/portfolio/Illustration/project-1-3.jpg',
-        '/portfolio/Illustration/project-1-4.jpg'
-      ]
-    }
-  ];
-
-  const filteredProjects = activeFilter === '全部'
-    ? projects
-    : projects.filter(project => project.category === activeFilter);
+  const renderProjectMedia = (project) => (
+    <ProjectMedia>
+      {project.video ? (
+        <video 
+          src={project.video} 
+          poster={project.preview_image}
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          loading="lazy"
+        />
+      ) : (
+        <img 
+          src={project.images[0]} 
+          alt={project.title} 
+          loading="lazy"
+          decoding="async"
+        />
+      )}
+    </ProjectMedia>
+  );
 
   return (
     <PortfolioContainer>
@@ -334,14 +166,12 @@ const Portfolio = () => {
           <ProjectCard
             key={project.id}
             onClick={() => navigate(`/portfolio/${project.id}`)}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
           >
-            <ProjectMedia>
-              {project.video ? (
-                <video src={project.video} autoPlay loop muted playsInline />
-              ) : (
-                <img src={project.image} alt={project.title} />
-              )}
-            </ProjectMedia>
+            {renderProjectMedia(project)}
             <ProjectInfo>
               <ProjectTitle>{project.title}</ProjectTitle>
               <ProjectCategory>{project.category}</ProjectCategory>

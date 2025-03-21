@@ -1,8 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400">
-  <rect width="800" height="400" fill="#f5f5f5"/>
-  <text x="400" y="200" font-family="Arial" font-size="24" fill="#333" text-anchor="middle" dominant-baseline="middle">UI设计趋势</text>
-  <path d="M300,250 Q400,150 500,250" stroke="#4a90e2" stroke-width="3" fill="none"/>
-  <circle cx="300" cy="250" r="5" fill="#4a90e2"/>
-  <circle cx="400" cy="150" r="5" fill="#4a90e2"/>
-  <circle cx="500" cy="250" r="5" fill="#4a90e2"/>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 27.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 800 400" style="enable-background:new 0 0 800 400;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#F5F5F5;}
+	.st1{fill:#333333;}
+	.st2{font-family:'AdobeSongStd-Light-GBpc-EUC-H';}
+	.st3{font-size:24px;}
+	.st4{fill:none;stroke:#4A90E2;stroke-width:3;}
+	.st5{fill:#4A90E2;}
+</style>
+<rect y="0" class="st0" width="800" height="400"/>
+<text transform="matrix(1 0 0 1 352 200)" class="st1 st2 st3">测试ing</text>
+<path class="st4" d="M300,250c66.7-66.7,133.3-66.7,200,0"/>
+<circle class="st5" cx="300" cy="250" r="5"/>
+<circle class="st5" cx="400" cy="150" r="5"/>
+<circle class="st5" cx="500" cy="250" r="5"/>
 </svg>
