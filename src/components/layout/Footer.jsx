@@ -66,7 +66,7 @@ const Footer = () => {
       <FooterContent>
         <FooterSection>
           <h3>关于我们</h3>
-          <p>专注于创意设计和用户体验，为客户提供优质的设计解决方案。</p>
+          <p>深耕品牌文化发展思维，提供优质的设计解决方案。</p>
         </FooterSection>
         <FooterSection>
           <h3>联系方式</h3>

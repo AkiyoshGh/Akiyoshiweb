@@ -115,7 +115,7 @@ const About = () => {
         <ProfileSection>
           <ProfileImage src="/images/profile.jpg" alt="Akiyoshi" />
           <ProfileBio>
-            你好，我是Akiyoshi。我一名平面设计师。专注于各类文化品牌设计、创意创作，
+            你好，这里是秋吉工作室。专注于各类文化品牌设计、创意创作，
             致力打磨优秀作品。我相信优秀的设计不仅能传达信息，更能创造价值，
             期待能与您合作，共同打造出色的作品。
           </ProfileBio>

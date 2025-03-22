@@ -197,23 +197,17 @@ const projects = [
     images: [
       '/portfolio/Packaging/project-2.jpg'
     ],
-    client: '美妆品牌',
-    role: '包装设计师',
-    tools: ['Adobe Illustrator', 'Adobe Photoshop']
   },
   {
     id: 17,
-    title: '化妆品包装设计',
+    title: '“七币”红包设计',
     category: '包装设计',
-    date: '2024',
-    description: '精致化妆品包装设计方案，通过简约优雅的设计语言，展现产品的高端品质和独特魅力。',
+    date: '2022',
+    description: '新年红包设计。该系列除了每封红包都有吉祥寓意外，结合红包起源故事，可从一系列图形中拼凑出包含“七”个钱包的样式。故称为“七币”红包',
     images: [
       '/portfolio/Packaging/project-5.jpg',
       '/portfolio/Packaging/project-5-2.jpg'
     ],
-    client: '美妆品牌',
-    role: '包装设计师',
-    tools: ['Adobe Illustrator', 'Adobe Photoshop']
   },
   {
     id: 18,
@@ -224,9 +218,6 @@ const projects = [
     images: [
       '/portfolio/Brochure_Book/project-3.jpg'
     ],
-    client: '绿叶集团',
-    role: '平面设计师',
-    tools: ['Adobe InDesign', 'Adobe Illustrator']
   }
 ];
 
