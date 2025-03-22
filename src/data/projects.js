@@ -22,10 +22,15 @@ const projects = [
     images: [
       '/portfolio/App_Web/project-1.jpg'
     ],
+    video: '/portfolio/App_Web/project-1-2.mp4',
+    preview_image: '/portfolio/App_Web/project-1-preview.jpg',
+    client: '加计美术馆',
+    role: '界面设计师',
+    tools: ['Adobe XD', 'Adobe Illustrator', 'Adobe After Effects']
   },
   {
     id: 3,
-    title: '品牌形象设计',
+    title: '千图网卡通形象设计',
     category: '企业形象',
     date: '2019',
     description: '为千图网的品牌形象设计',
@@ -169,7 +174,7 @@ const projects = [
   },
   {
     id: 15,
-    title: '黄山形象设计方案提案',
+    title: '黄山卡通形象设计方案提案',
     category: '企业形象',
     date: '2019',
     description: '为黄山形象设计招标而提出的方案。通过对黄山自然景观和文化特色的深入研究，设计了一套完整的品牌形象系统，包含多个应用场景展示。',
@@ -198,6 +203,20 @@ const projects = [
   },
   {
     id: 17,
+    title: '化妆品包装设计',
+    category: '包装设计',
+    date: '2024',
+    description: '精致化妆品包装设计方案，通过简约优雅的设计语言，展现产品的高端品质和独特魅力。',
+    images: [
+      '/portfolio/Packaging/project-5.jpg',
+      '/portfolio/Packaging/project-5-2.jpg'
+    ],
+    client: '美妆品牌',
+    role: '包装设计师',
+    tools: ['Adobe Illustrator', 'Adobe Photoshop']
+  },
+  {
+    id: 18,
     title: '绿叶宣传册设计',
     category: '宣传册和书籍',
     date: '2019',

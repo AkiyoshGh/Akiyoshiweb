@@ -76,17 +76,30 @@ const ProjectDescription = styled.p`
 const MediaContainer = styled.div`
   position: relative;
   width: 100%;
-  margin-bottom: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
   background: var(--color-background);
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xl);
+
+  > div {
+    width: 100%;
+  }
 `;
 
 const MediaWrapper = styled.div`
   position: relative;
   width: 100%;
-  padding-top: 56.25%;
+  padding-top: 56.25%; /* 16:9 比例，更适合展示大多数作品 */
   overflow: hidden;
   background: var(--color-background-light);
   border-radius: 4px;
+  max-width: 1000px;
+  margin: 0 auto;
 `;
 
 const Media = styled(motion.div)`
@@ -95,13 +108,18 @@ const Media = styled(motion.div)`
   left: 0;
   width: 100%;
   height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   img, video {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    object-position: center;
   }
 `;
+
 
 const ImageNavigationArea = styled.div`
   position: absolute;
@@ -129,6 +147,10 @@ const ThumbnailContainer = styled.div`
   justify-content: center;
   scrollbar-width: thin;
   scrollbar-color: var(--color-text-light) transparent;
+  width: 100%;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 
   &::-webkit-scrollbar {
     height: 6px;
@@ -215,9 +237,10 @@ const PortfolioDetail = () => {
       </ProjectHeader>
 
       <MediaContainer>
-        <MediaWrapper>
-          <AnimatePresence mode="wait">
-            {currentProject.video ? (
+        {/* 视频模块 */}
+        {currentProject.video && (
+          <div>
+            <MediaWrapper>
               <Media
                 key="video"
                 initial={{ opacity: 0 }}
@@ -231,42 +254,51 @@ const PortfolioDetail = () => {
                   poster={currentProject.preview_image}
                 />
               </Media>
-            ) : (
-              <Media
-                key={currentProject.images[currentImageIndex]}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                <img
-                  src={currentProject.images[currentImageIndex]}
-                  alt={currentProject.title}
-                />
-              </Media>
+            </MediaWrapper>
+          </div>
+        )}
+
+        {/* 图片模块 */}
+        {currentProject.images && currentProject.images.length > 0 && (
+          <div>
+            <MediaWrapper>
+              <AnimatePresence mode="wait">
+                <Media
+                  key={currentProject.images[currentImageIndex]}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <img
+                    src={currentProject.images[currentImageIndex]}
+                    alt={`${currentProject.title} - ${currentImageIndex + 1}`}
+                  />
+                </Media>
+              </AnimatePresence>
+
+              {currentProject.images.length > 1 && (
+                <>
+                  <ImageNavigationArea onClick={handlePrevImage} />
+                  <ImageNavigationArea onClick={handleNextImage} />
+                </>
+              )}
+            </MediaWrapper>
+
+            {currentProject.images.length > 1 && (
+              <ThumbnailContainer>
+                {currentProject.images.map((image, index) => (
+                  <Thumbnail
+                    key={index}
+                    active={index === currentImageIndex}
+                    onClick={() => setCurrentImageIndex(index)}
+                  >
+                    <img src={image} alt={`${currentProject.title} - ${index + 1}`} />
+                  </Thumbnail>
+                ))}
+              </ThumbnailContainer>
             )}
-          </AnimatePresence>
-
-          {!currentProject.video && currentProject.images.length > 1 && (
-            <>
-              <ImageNavigationArea onClick={handlePrevImage} />
-              <ImageNavigationArea onClick={handleNextImage} />
-            </>
-          )}
-        </MediaWrapper>
-
-        {!currentProject.video && currentProject.images.length > 1 && (
-          <ThumbnailContainer>
-            {currentProject.images.map((image, index) => (
-              <Thumbnail
-                key={index}
-                active={currentImageIndex === index}
-                onClick={() => setCurrentImageIndex(index)}
-              >
-                <img src={image} alt={`${currentProject.title} - ${index + 1}`} />
-              </Thumbnail>
-            ))}
-          </ThumbnailContainer>
+          </div>
         )}
       </MediaContainer>
       <ProjectDescription>{currentProject.description}</ProjectDescription>
