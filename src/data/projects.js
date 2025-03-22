@@ -1,3 +1,6 @@
+// 定义过滤器数组
+const filters = ['全部', '插画', 'App/Web', '宣传册和书籍', '动画和视频', 'Vi', '企业形象', '包装设计'];
+
 // 项目数据
 const projects = [
   {
@@ -11,7 +14,7 @@ const projects = [
       '/portfolio/Illustration/project-1-2.jpg',
       '/portfolio/Illustration/project-1-3.jpg',
       '/portfolio/Illustration/project-1-4.jpg'
-    ],
+    ]
   },
   {
     id: 2,
@@ -23,24 +26,10 @@ const projects = [
       '/portfolio/App_Web/project-1.jpg'
     ],
     video: '/portfolio/App_Web/project-1-2.mp4',
-    preview_image: '/portfolio/App_Web/project-1-preview.jpg',
-    client: '加计美术馆',
-    role: '界面设计师',
-    tools: ['Adobe XD', 'Adobe Illustrator', 'Adobe After Effects']
+    preview_image: '/portfolio/App_Web/project-1-preview.jpg'
   },
   {
     id: 3,
-    title: '千图网卡通形象设计',
-    category: '企业形象',
-    date: '2019',
-    description: '为千图网的品牌形象设计',
-    images: [
-      '/portfolio/Brand_Image/project-1.jpg',
-      '/portfolio/Brand_Image/project-1-2.jpg'
-    ],
-  },
-  {
-    id: 4,
     title: '折纸企划的品牌宣传册设计',
     category: '宣传册和书籍',
     date: '2019',
@@ -49,10 +38,10 @@ const projects = [
       '/portfolio/Brochure_Book/project-1.jpg',
       '/portfolio/Brochure_Book/project-1-2.jpg',
       '/portfolio/Brochure_Book/project-1-3.jpg'
-    ],
+    ]
   },
   {
-    id: 5,
+    id: 4,
     title: '奥多摩地域振兴活动项目',
     category: '宣传册和书籍',
     date: '2019',
@@ -61,84 +50,19 @@ const projects = [
       '/portfolio/Brochure_Book/project-2.jpg',
       '/portfolio/Brochure_Book/project-2-2.jpg',
       '/portfolio/Brochure_Book/project-2-3.jpg'
-    ],
+    ]
   },
   {
-    id: 6,
+    id: 5,
     title: '加计美术馆宣传视频',
     category: '动画和视频',
     date: '2020-2021',
     description: '加计美术馆设计项目。创作了以三大核心概念为基础的概念。',
     video: '/portfolio/Animation_Video/project-1.mp4',
-    preview_image: '/portfolio/Animation_Video/project-1-preview.jpg',
+    preview_image: '/portfolio/Animation_Video/project-1-preview.jpg'
   },
   {
-    id: 7,
-    title: '品牌Logo设计',
-    category: 'Vi',
-    date: '2018',
-    description: '该项目品牌为一站式婚庆服务品牌。以品牌名称首字母"d""q"为主而设计的Logo',
-    images: [
-      '/portfolio/Vi/project-1.jpg',
-      '/portfolio/Vi/project-1-2.jpg',
-      '/portfolio/Vi/project-1-3.jpg'
-    ],
-  },
-  {
-    id: 8,
-    title: '苏悦汇Logo设计',
-    category: 'Vi',
-    date: '2018',
-    description: '以苏式为风格设计的一组Logo提案',
-    images: [
-      '/portfolio/Vi/project-2.jpg',
-      '/portfolio/Vi/project-2-2.jpg',
-      '/portfolio/Vi/project-2-3.jpg'
-    ],
-  },
-  {
-    id: 9,
-    title: '钱大妈Logo设计',
-    category: 'Vi',
-    date: '2019',
-    description: '以锁住新鲜为主概念设计的Logo提案',
-    images: [
-      '/portfolio/Vi/project-3.jpg',
-      '/portfolio/Vi/project-3-2.jpg'
-    ],
-  },
-  {
-    id: 10,
-    title: '沐浴肥皂',
-    category: '包装设计',
-    date: '2024',
-    description: '左边为产品设计的最初概念版。经反复打磨后右边的为最终版本。',
-    images: [
-      '/portfolio/Packaging/project-4.jpg'
-    ],
-  },
-  {
-    id: 11,
-    title: '洗护系列外盒包装设计',
-    category: '包装设计',
-    date: '2024',
-    description: '洗护系列外盒包装设计方案',
-    images: [
-      '/portfolio/Packaging/project-3.jpg'
-    ],
-  },
-  {
-    id: 12,
-    title: 'Fab洗洁精包装设计',
-    category: '包装设计',
-    date: '2024',
-    description: '以"0"添加为主视觉概念，设计的一系列洗洁精保证',
-    images: [
-      '/portfolio/Packaging/project-1.jpg'
-    ],
-  },
-  {
-    id: 13,
+    id: 6,
     title: 'Oteam Logo设计提案',
     category: 'Vi',
     date: '2020',
@@ -153,10 +77,10 @@ const projects = [
       '/portfolio/Vi/project-4-7.jpg',
       '/portfolio/Vi/project-4-8.jpg',
       '/portfolio/Vi/project-4-9.jpg'
-    ],
+    ]
   },
   {
-    id: 14,
+    id: 7,
     title: '加计美术馆Vi设计',
     category: 'Vi',
     date: '2020-2021',
@@ -167,13 +91,10 @@ const projects = [
       '/portfolio/Vi/project-5-2.jpg',
       '/portfolio/Vi/project-5-3.jpg',
       '/portfolio/Vi/project-5-4.jpg'
-    ],
-    client: '加计美术馆',
-    role: '视觉设计师',
-    tools: ['Adobe Illustrator', 'Adobe Photoshop']
+    ]
   },
   {
-    id: 15,
+    id: 8,
     title: '黄山卡通形象设计方案提案',
     category: '企业形象',
     date: '2019',
@@ -183,47 +104,117 @@ const projects = [
       '/portfolio/Brand_Image/project-2-2.jpg',
       '/portfolio/Brand_Image/project-2-3.jpg',
       '/portfolio/Brand_Image/project-2-4.jpg'
-    ],
-    client: '黄山旅游发展公司',
-    role: '品牌设计师',
-    tools: ['Adobe Illustrator', 'Adobe Photoshop']
+    ]
   },
   {
-    id: 16,
+    id: 9,
     title: '护发系列包装设计',
     category: '包装设计',
     date: '2023',
-    description: '护发系列的包装设计方案。通过简约现代的设计风格，突出产品的天然和专业护理特性，打造高端护发品牌形象。',
+    description: '护发系列的包装设计方案。通过简约现代的设计风格，打造高端护发品牌形象。',
     images: [
       '/portfolio/Packaging/project-2.jpg'
-    ],
+    ]
   },
   {
-    id: 17,
-    title: '“七币”红包设计',
+    id: 10,
+    title: '"七币"红包设计',
     category: '包装设计',
     date: '2022',
-    description: '新年红包设计。该系列除了每封红包都有吉祥寓意外，结合红包起源故事，可从一系列图形中拼凑出包含“七”个钱包的样式。故称为“七币”红包',
+    description: '新年红包设计。该系列除了每封红包都有吉祥寓意外，结合红包起源故事，可从一系列图形中拼凑出包含"七"个钱包的样式。故称为"七币"红包。',
     images: [
       '/portfolio/Packaging/project-5.jpg',
       '/portfolio/Packaging/project-5-2.jpg'
-    ],
+    ]
+  },
+  {
+    id: 11,
+    title: 'Fab洗洁精包装设计',
+    category: '包装设计',
+    date: '2023',
+    description: 'Fab洗洁精系列包装设计。以“0”为主视觉，而设计的瓶装以及补充袋装系列包装。',
+    images: [
+      '/portfolio/Packaging/project-1.jpg'
+    ]
+  },
+  {
+    id: 12,
+    title: '洗发水&护发素组合装包装设计',
+    category: '包装设计',
+    date: '2023',
+    description: '一组洗发水&护发组盒包装的设计方案。整体与产品的整体风格保持一致，大开窗口的设计，高端大气。',
+    images: [
+      '/portfolio/Packaging/project-3.jpg'
+    ]
+  },
+  {
+    id: 13,
+    title: '千图网卡通形象设计提案',
+    category: '企业形象',
+    date: '2019',
+    description: '以鸟带来第一颗种子而带来水稻为灵感，寓意灵感之站而设计的卡通形象设计提案。',
+    images: [
+      '/portfolio/Brand_Image/project-1.jpg',
+      '/portfolio/Brand_Image/project-1-2.jpg'
+    ]
+  },
+  {
+    id: 14,
+    title: '苏悦汇品牌设计Logo提案',
+    category: 'Vi',
+    date: '2018',
+    description: '一组以苏式风格元素而设计的Logo方案',
+    images: [
+      '/portfolio/Vi/project-2.jpg',
+      '/portfolio/Vi/project-2-2.jpg',
+      '/portfolio/Vi/project-2-3.jpg'
+    ]
+  },
+  {
+    id: 15,
+    title: '钱大妈Logo设计提案',
+    category: 'Vi',
+    date: '2019',
+    description: '以锁住新鲜为主概念设计的Logo设计提案',
+    images: [
+      '/portfolio/Vi/project-3.jpg',
+      '/portfolio/Vi/project-3-2.jpg'
+    ]
+  },
+  {
+    id: 16,
+    title: '沐浴露香皂',
+    category: '包装设计',
+    date: '2023',
+    description: '左侧的为初稿概念图。右侧的为经反复打样修改后的最终效果。',
+    images: [
+      '/portfolio/Packaging/project-4.jpg'
+    ]
+  },
+  {
+    id: 17,
+    title: '绿叶品牌宣传册',
+    category: '宣传册和书籍',
+    date: '2023',
+    description: '绿叶集团宣传册，展现了旗下规模、产品等一系列信息。',
+    images: [
+      '/portfolio/Brochure_Book/project-3.jpg'
+    ]
   },
   {
     id: 18,
-    title: '绿叶宣传册设计',
-    category: '宣传册和书籍',
-    date: '2019',
-    description: '企业宣传册设计方案。通过清新自然的设计风格，展现品牌的环保理念和产品特色，突出企业在可持续发展方面的努力。',
+    title: '东庆童话Logo设计提案',
+    category: 'Vi',
+    date: '2018',
+    description: '为一站式婚期服务平台品牌“东庆童话”设计的Logo提案。以首字母“d”“q”为主体，加上婚戒元素设计而成。整体高端大气。',
     images: [
-      '/portfolio/Brochure_Book/project-3.jpg'
-    ],
+      '/portfolio/Vi/project-1.jpg',
+      '/portfolio/Vi/project-1-2.jpg',
+      '/portfolio/Vi/project-1-3.jpg'
+    ]
   }
 ];
 
-
-// 导出项目数据
+// 导出过滤器数组和项目数据到window对象
+window.filters = filters;
 window.projects = projects;
-
-// 导出过滤器选项
-window.filters = ['全部', '插画', 'App/Web', 'Vi', '动画和视频', '宣传册和书籍', '企业形象', '包装设计'];

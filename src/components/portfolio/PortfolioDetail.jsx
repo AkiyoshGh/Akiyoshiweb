@@ -78,7 +78,7 @@ const MediaContainer = styled.div`
   width: 100%;
   margin-bottom: var(--spacing-xl);
   background: var(--color-background);
-  max-width: 1000px;
+  max-width: 1200px; /* 增加最大宽度，与MediaWrapper保持一致 */
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -94,11 +94,11 @@ const MediaContainer = styled.div`
 const MediaWrapper = styled.div`
   position: relative;
   width: 100%;
-  padding-top: 56.25%; /* 16:9 比例，更适合展示大多数作品 */
+  padding-top: 56.25%; /* 16:9 比例，更适合现代显示设备 */
   overflow: hidden;
   background: var(--color-background-light);
   border-radius: 4px;
-  max-width: 1000px;
+  max-width: 1200px; /* 增加最大宽度，使图片显示更大 */
   margin: 0 auto;
 `;
 
@@ -115,8 +115,9 @@ const Media = styled(motion.div)`
   img, video {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: contain; /* 保持图片比例，确保完整显示 */
     object-position: center;
+    max-height: 100%; /* 确保图片不会超出容器 */
   }
 `;
 
@@ -148,7 +149,7 @@ const ThumbnailContainer = styled.div`
   scrollbar-width: thin;
   scrollbar-color: var(--color-text-light) transparent;
   width: 100%;
-  max-width: 1000px;
+  max-width: 1200px; /* 增加最大宽度，与MediaWrapper保持一致 */
   margin-left: auto;
   margin-right: auto;
 
