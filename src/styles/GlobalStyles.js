@@ -87,7 +87,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   .container {
-    max-width: min(var(--breakpoint-desktop), 90%);
+    max-width: min(1200px, 90vw) !important;
     margin: 0 auto;
     padding: 0 var(--spacing-lg);
     width: 100%;
@@ -104,14 +104,15 @@ const GlobalStyles = createGlobalStyle`
 
   /* 响应式布局基础样式 */
   @media (max-width: 768px) {
-    html {
-      font-size: 14px;
+  html { font-size: 14px; }
+  /* 移除字体缩放，改用组件级响应式 */
     }
   }
 
-  @media (max-width: 480px) {
-    html {
-      font-size: 12px;
+  @media (min-width: 1024px) {
+  .portfolio-section .container {
+    max-width: none !important;
+    padding: 0 var(--spacing-xl) !important;
     }
   }
 `;

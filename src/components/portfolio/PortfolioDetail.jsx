@@ -4,40 +4,39 @@ import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const DetailContainer = styled.div`
-  padding: calc(var(--spacing-xl) * 2) var(--spacing-lg);
-  max-width: var(--breakpoint-desktop);
+  padding: var(--spacing-xl) var(--spacing-lg);
+  max-width: 100%;
+  width: 100%;
   margin: 0 auto;
   background: var(--color-background);
   
   @media (min-width: 768px) {
-    padding: calc(var(--spacing-xl) * 3) var(--spacing-xl);
+    padding: var(--spacing-xl) var(--spacing-xl);
   }
 `;
 
 const BackButton = styled(motion.button)`
-  background: transparent;
-  color: var(--color-text);
-  border: 1px solid var(--color-text);
+  background: none;
+  border: none;
+  color: var(--color-accent);
   padding: var(--spacing-sm) var(--spacing-md);
-  border-radius: 4px;
   cursor: pointer;
   margin-bottom: var(--spacing-xl);
   display: flex;
   align-items: center;
-  gap: var(--spacing-sm);
-  font-size: 0.9rem;
+  gap: var(--spacing-xs);
+  font-size: 1rem;
   transition: all 0.3s ease;
 
   &:hover {
-    background: var(--color-text);
-    color: var(--color-background);
+    opacity: 0.8;
   }
 `;
 
 const ProjectHeader = styled.div`
   margin-bottom: var(--spacing-lg);
   text-align: left;
-  max-width: 800px;
+  max-width: 1200px;
 `;
 
 const ProjectTitle = styled.h1`
@@ -70,7 +69,7 @@ const ProjectDescription = styled.p`
   margin-top: var(--spacing-sm);
   margin-bottom: var(--spacing-md);
   font-size: 1rem;
-  max-width: 800px;
+  max-width: 1200px;
 `;
 
 const MediaContainer = styled.div`
@@ -78,7 +77,7 @@ const MediaContainer = styled.div`
   width: 100%;
   margin-bottom: var(--spacing-xl);
   background: var(--color-background);
-  max-width: 1200px; /* 增加最大宽度，与MediaWrapper保持一致 */
+  max-width: 1600px; /* 增加最大宽度 */
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -94,32 +93,36 @@ const MediaContainer = styled.div`
 const MediaWrapper = styled.div`
   position: relative;
   width: 100%;
-  padding-top: 56.25%; /* 16:9 比例，更适合现代显示设备 */
-  overflow: hidden;
-  background: var(--color-background-light);
-  border-radius: 4px;
-  max-width: 1200px; /* 增加最大宽度，使图片显示更大 */
+  max-width: 1600px;
   margin: 0 auto;
+  padding: 0;
+  overflow: hidden;
 `;
 
 const Media = styled(motion.div)`
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
+  max-width: 100%;
+  height: auto;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+`;
 
-  img, video {
+const VideoContainer = styled.div`
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 比例 */
+  overflow: hidden;
+  
+  video {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: contain; /* 保持图片比例，确保完整显示 */
-    object-position: center;
-    max-height: 100%; /* 确保图片不会超出容器 */
+    object-fit: cover;
   }
-`;
+`
 
 
 const ImageNavigationArea = styled.div`
@@ -149,7 +152,7 @@ const ThumbnailContainer = styled.div`
   scrollbar-width: thin;
   scrollbar-color: var(--color-text-light) transparent;
   width: 100%;
-  max-width: 1200px; /* 增加最大宽度，与MediaWrapper保持一致 */
+  max-width: 1600px; /* 增加最大宽度，与MediaWrapper保持一致 */
   margin-left: auto;
   margin-right: auto;
 
@@ -176,7 +179,7 @@ const Thumbnail = styled.div`
   opacity: ${props => props.active ? 1 : 0.6};
   transition: all 0.3s ease;
   flex-shrink: 0;
-  border: 1px solid ${props => props.active ? 'var(--color-text)' : 'transparent'};
+  border: 1px solid ${props => props.active ? 'var(--color-accent)' : 'transparent'};
 
   img {
     width: 100%;
@@ -249,11 +252,16 @@ const PortfolioDetail = () => {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3 }}
               >
-                <video
-                  src={currentProject.video}
-                  controls
-                  poster={currentProject.preview_image}
-                />
+                <VideoContainer>
+                  <video
+                    src={currentProject.video}
+                    controls
+                    poster={currentProject.preview_image}
+                    preload="metadata"
+                    controlsList="nodownload"
+                    playsInline
+                  />
+                </VideoContainer>
               </Media>
             </MediaWrapper>
           </div>
