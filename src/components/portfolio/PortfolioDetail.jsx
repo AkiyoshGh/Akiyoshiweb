@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
+import ImagePreloader from './ImagePreloader';
 
 const DetailContainer = styled.div`
   padding: var(--spacing-xl) var(--spacing-lg);
@@ -106,6 +107,13 @@ const Media = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    max-height: 80vh; /* 限制图片最大高度为视口高度的80% */
+  }
 `;
 
 const VideoContainer = styled.div`
@@ -197,16 +205,44 @@ const PortfolioDetail = () => {
   const navigate = useNavigate();
   const [currentProject, setCurrentProject] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [imagesLoaded, setImagesLoaded] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+  const thumbnailContainerRef = useRef(null);
 
   useEffect(() => {
     const projects = window.projects || [];
     const project = projects.find(p => p.id === parseInt(id));
     if (project) {
       setCurrentProject(project);
+      setIsLoading(true);
+      // 重置图片加载状态
+      setImagesLoaded({});
     } else {
       navigate('/portfolio');
     }
   }, [id, navigate]);
+  
+  // 处理图片加载完成
+  const handleImageLoaded = (index) => {
+    setImagesLoaded(prev => ({
+      ...prev,
+      [index]: true
+    }));
+    setIsLoading(false);
+  };
+  
+  // 滚动缩略图到当前选中的图片
+  useEffect(() => {
+    if (thumbnailContainerRef.current && currentProject?.images?.length > 1) {
+      const thumbnailWidth = 120; // 缩略图宽度
+      const gap = 16; // 间距
+      const scrollPosition = (thumbnailWidth + gap) * currentImageIndex;
+      thumbnailContainerRef.current.scrollTo({
+        left: scrollPosition - thumbnailContainerRef.current.clientWidth / 2 + thumbnailWidth / 2,
+        behavior: 'smooth'
+      });
+    }
+  }, [currentImageIndex, currentProject]);
 
   if (!currentProject) return null;
 
@@ -270,18 +306,34 @@ const PortfolioDetail = () => {
         {/* 图片模块 */}
         {currentProject.images && currentProject.images.length > 0 && (
           <div>
+            {/* 预加载当前图片和相邻图片 */}
+            <ImagePreloader 
+              images={[
+                currentProject.images[currentImageIndex],
+                currentProject.images[(currentImageIndex + 1) % currentProject.images.length],
+                currentProject.images[currentImageIndex === 0 ? currentProject.images.length - 1 : currentImageIndex - 1]
+              ].filter(Boolean)}
+            />
+            
             <MediaWrapper>
               <AnimatePresence mode="wait">
                 <Media
                   key={currentProject.images[currentImageIndex]}
                   initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
+                  animate={{ opacity: imagesLoaded[currentImageIndex] ? 1 : 0.3 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.3 }}
                 >
+                  {isLoading && !imagesLoaded[currentImageIndex] && (
+                    <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+                      加载中...
+                    </div>
+                  )}
                   <img
                     src={currentProject.images[currentImageIndex]}
                     alt={`${currentProject.title} - ${currentImageIndex + 1}`}
+                    onLoad={() => handleImageLoaded(currentImageIndex)}
+                    loading="lazy"
                   />
                 </Media>
               </AnimatePresence>
@@ -295,14 +347,18 @@ const PortfolioDetail = () => {
             </MediaWrapper>
 
             {currentProject.images.length > 1 && (
-              <ThumbnailContainer>
+              <ThumbnailContainer ref={thumbnailContainerRef}>
                 {currentProject.images.map((image, index) => (
                   <Thumbnail
                     key={index}
                     active={index === currentImageIndex}
                     onClick={() => setCurrentImageIndex(index)}
                   >
-                    <img src={image} alt={`${currentProject.title} - ${index + 1}`} />
+                    <img 
+                      src={image} 
+                      alt={`${currentProject.title} - ${index + 1}`} 
+                      loading="lazy"
+                    />
                   </Thumbnail>
                 ))}
               </ThumbnailContainer>

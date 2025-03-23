@@ -73,10 +73,7 @@ const projects = [
       '/portfolio/Vi/project-4-3.jpg',
       '/portfolio/Vi/project-4-4.jpg',
       '/portfolio/Vi/project-4-5.jpg',
-      '/portfolio/Vi/project-4-6.jpg',
-      '/portfolio/Vi/project-4-7.jpg',
-      '/portfolio/Vi/project-4-8.jpg',
-      '/portfolio/Vi/project-4-9.jpg'
+      '/portfolio/Vi/project-4-6.jpg'
     ]
   },
   {

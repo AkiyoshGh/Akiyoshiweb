@@ -78,7 +78,7 @@ const Footer = () => {
           <h3>社交媒体</h3>
           <SocialLinks>
             <SocialLink
-              href="https://www.zcool.com.cn"
+              href="https://www.zcool.com.cn/u/16345632?sort=8&p=1#tab_anchor"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ y: -2 }}
