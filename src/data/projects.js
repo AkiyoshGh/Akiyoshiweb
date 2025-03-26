@@ -1,5 +1,5 @@
 // 定义过滤器数组
-const filters = ['全部', '插画', 'App/Web', '宣传册和书籍', '动画和视频', 'Vi', '企业形象', '包装设计'];
+const filters = ['全部', '插画', 'App/Web', '宣传册/书籍', '动画/视频', 'Vi', '企业形象', '包装设计'];
 
 // 项目数据
 const projects = [
@@ -8,7 +8,7 @@ const projects = [
     title: '日本仓敷市井盖设计',
     category: '插画',
     date: '2020',
-    description: '通过对日本仓敷市的文化考察而构思的一组井盖插画设计。其中有从一轮棉花开始的仓敷物语、因鲱鱼肥料交易而繁荣的历史、还有弥生后期神秘的楯築遗迹。这些文化的考察，加深了对仓敷这个城市的了解。',
+    description: '通过对日本仓敷市的文化考察而构思的一组井盖插画设计。其中有从一轮棉花开始的仓敷物语、因鲱鱼肥料交易而繁荣的历史、还有弥生后期神秘的楯築遗迹。',
     images: [
       '/portfolio/Illustration/project-1.jpg',
       '/portfolio/Illustration/project-1-2.jpg',
@@ -31,9 +31,9 @@ const projects = [
   {
     id: 3,
     title: '折纸企划的品牌宣传册设计',
-    category: '宣传册和书籍',
+    category: '宣传册/书籍',
     date: '2019',
-    description: '以折纸为课题，创造的折纸品牌纸指。用趣味和创意，以及想要折出独特的折纸作品并不难的方式，展现了折纸的独特魅力。另外本册大小为15x15cm，是折纸纸张的标准尺寸',
+    description: '以宣传折纸为课题，创造的折纸品牌「纸指」。用趣味和创意，以想要折出独特的折纸作品并不难的概念，展现了折纸的独特魅力。另外本册大小为15x15cm，是折纸纸张的大众尺寸',
     images: [
       '/portfolio/Brochure_Book/project-1.jpg',
       '/portfolio/Brochure_Book/project-1-2.jpg',
@@ -43,9 +43,9 @@ const projects = [
   {
     id: 4,
     title: '奥多摩地域振兴活动项目',
-    category: '宣传册和书籍',
+    category: '宣传册/书籍',
     date: '2019',
-    description: '为日本东京奥多摩地区的地域创新课题，经过几天考察而制作的宣传册。展现当地的饮食以及文化特色',
+    description: '为日本东京奥多摩地区的地域振兴的课题活动，经过几天考察而制作的宣传册，展现当地的饮食以及文化特色。',
     images: [
       '/portfolio/Brochure_Book/project-2.jpg',
       '/portfolio/Brochure_Book/project-2-2.jpg',
@@ -55,9 +55,9 @@ const projects = [
   {
     id: 5,
     title: '加计美术馆宣传视频',
-    category: '动画和视频',
+    category: '动画/视频',
     date: '2020-2021',
-    description: '加计美术馆设计项目。创作了以三大核心概念为基础的概念。',
+    description: '加计美术馆设计项目。该视频动画以加计美术馆三大核心概念（地域支援、作家支援、教育支援）为基础的，对“过去”、“现在”、“未来”的一个阐述而做的动画。',
     video: '/portfolio/Animation_Video/project-1.mp4',
     preview_image: '/portfolio/Animation_Video/project-1-preview.jpg'
   },
@@ -81,7 +81,7 @@ const projects = [
     title: '加计美术馆Vi设计',
     category: 'Vi',
     date: '2020-2021',
-    description: '加计美术馆设计项目。以加计美术馆的三大支援概念，而设计的一套Vi系统。通过品牌视觉识别系统的设计，展现美术馆的文化内涵和艺术价值。',
+    description: '加计美术馆设计项目。以加计美术馆的核心概念三大支援（地域支援、教育支援、教育支援）为设计概念基础，在对美术馆自身所在地文化以及建筑等一系列方面考察后，提出的三个方案。品牌颜色采用了锈青色，用“锈”代表着复古或者说是传统，用“青”代表着新生力和现代，在这个美术馆里，所有的一切将会产生一种独特的融合感，成为一个新色彩。',
     images: [
       '/portfolio/Vi/project-5.jpg',
       '/portfolio/Vi/project-5-1.jpg',
@@ -95,7 +95,7 @@ const projects = [
     title: '黄山卡通形象设计方案提案',
     category: '企业形象',
     date: '2019',
-    description: '为黄山形象设计招标而提出的方案。通过对黄山自然景观和文化特色的深入研究，设计了一套完整的品牌形象系统，包含多个应用场景展示。',
+    description: '为黄山形象设计招标而提出的方案。通过对黄山自然景观和文化特色的深入研究，设计了一套品牌形象系统，包含多个衍生应用展示。',
     images: [
       '/portfolio/Brand_Image/project-2.jpg',
       '/portfolio/Brand_Image/project-2-2.jpg',
@@ -118,7 +118,7 @@ const projects = [
     title: '"七币"红包设计',
     category: '包装设计',
     date: '2022',
-    description: '新年红包设计。该系列除了每封红包都有吉祥寓意外，结合红包起源故事，可从一系列图形中拼凑出包含"七"个钱包的样式。故称为"七币"红包。',
+    description: '新年红包设计。该系列除了每封红包都有吉祥的寓意之外，结合红包起源故事，精心设计了红包图案。可从这一系列的红包图形中拼凑出包含"七"个钱包的样式。故称为"七币"红包。',
     images: [
       '/portfolio/Packaging/project-5.jpg',
       '/portfolio/Packaging/project-5-2.jpg'
@@ -191,7 +191,7 @@ const projects = [
   {
     id: 17,
     title: '绿叶品牌宣传册',
-    category: '宣传册和书籍',
+    category: '宣传册/书籍',
     date: '2023',
     description: '绿叶集团宣传册，展现了旗下规模、产品等一系列信息。',
     images: [

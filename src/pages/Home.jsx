@@ -172,19 +172,19 @@ const Home = () => {
     {
       id: 1,
       title: 'App界面设计',
-      description: '加计美术馆项目移动应用界面设计',
+      description: '移动应用界面设计',
       image: '/portfolio/placeholder-1.jpg'
     },
     {
       id: 2,
       title: '品牌VI识别系统',
-      description: '加计美术馆项目品牌视觉识别系统',
+      description: '品牌VI视觉识别手册',
       image: '/portfolio/placeholder-2.jpg'
     },
     {
       id: 3,
-      title: '课题项目宣传册',
-      description: '以折纸为课题策划的品牌项目，探究折纸的创新趣味',
+      title: '文化宣传册',
+      description: '品牌文化宣传册',
       image: '/portfolio/placeholder-3.jpg'
     }
   ];
