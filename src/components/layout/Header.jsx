@@ -129,7 +129,7 @@ const Header = () => {
           <div className="logo-text">
             <span className="logo-main">Akiyoshi Studio</span>
             <span className="logo-separator">|</span>
-            <span className="logo-sub">秋吉工作室</span>
+            <span className="logo-sub">秋吉</span>
           </div>
         </Logo>
         <NavLinks>
