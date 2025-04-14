@@ -129,7 +129,7 @@ const Header = () => {
           <div className="logo-text">
             <span className="logo-main">Akiyoshi Studio</span>
             <span className="logo-separator">|</span>
-            <span className="logo-sub">秋吉</span>
+            <span className="logo-sub">秋喆</span>
           </div>
         </Logo>
         <NavLinks>
@@ -151,7 +151,7 @@ const Header = () => {
             onClick={handleNavClick}
           >
             <div className="nav-text">
-              <span>作品集</span>
+              <span>作品/案例</span>
               <span className="nav-text-en">Portfolio</span>
             </div>
           </NavLink>

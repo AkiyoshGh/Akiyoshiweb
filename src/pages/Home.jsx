@@ -171,19 +171,19 @@ const Home = () => {
   const projects = [
     {
       id: 1,
-      title: 'App界面设计',
-      description: '移动应用界面设计',
+      title: 'UI/UX设计',
+      description: 'App移动应用界面设计',
       image: '/portfolio/placeholder-1.jpg'
     },
     {
       id: 2,
-      title: '品牌VI识别系统',
+      title: '品牌视觉设计',
       description: '品牌VI视觉识别手册',
       image: '/portfolio/placeholder-2.jpg'
     },
     {
       id: 3,
-      title: '文化宣传册',
+      title: '宣传册',
       description: '品牌文化宣传册',
       image: '/portfolio/placeholder-3.jpg'
     }

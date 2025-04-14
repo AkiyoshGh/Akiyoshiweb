@@ -265,7 +265,7 @@ const PortfolioDetail = () => {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
-        ← 返回作品集
+        ← 返回作品/案例
       </BackButton>
 
       <ProjectHeader>

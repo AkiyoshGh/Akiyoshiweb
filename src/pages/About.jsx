@@ -86,28 +86,28 @@ const About = () => {
   const services = [
     {
       title: '品牌设计',
-      description: '从品牌策略到视觉识别系统的全方位设计服务，创造独有视觉体验。'
+      description: '从视觉语言构建品牌灵魂，从LOGO到VI系统精准传递品牌内核。通过战略定位、形象升级、市场差异化、打造深入人心的品牌符号。'
     },
     {
       title: 'UI/UX设计',
-      description: '以用户为中心的界面设计，提供直观、流畅的交互体验。'
+      description: '用科学设计驱动商业增长，构建「用户愿用、爱用」的数字产品。基于用户行为研究与交互逻辑优化，打造直观流畅的洁面体验。'
     },
     {
       title: '插画设计',
-      description: '创作独特的商业插画，为品牌注入艺术气息和视觉活力。'
+      description: '用画笔讲述品牌故事，定制专属视觉记忆点。结合品牌调性创作商业插画、为数字与实体媒介注入艺术生命力。'
     },
     {
       title: '包装设计',
-      description: '了解工艺材质，是懂产品的包装品牌设计。'
+      description: '让产品开口说话的第一媒介，创造货架吸引力与开箱仪式感。从创新到视觉设计，兼顾实用性与美学价值。'
     }
   ];
 
   return (
     <AboutContainer>
       <AboutHeader>
-        <Title>关于我</Title>
+        <Title>关于我们</Title>
         <Subtitle>
-          热衷于创造独特的视觉体验和有价值的设计
+          一家注重生活美学，专注做好每个品牌本质的设计公司。
         </Subtitle>
       </AboutHeader>
 
@@ -115,7 +115,7 @@ const About = () => {
         <ProfileSection>
           <ProfileImage src="/images/profile.jpg" alt="Akiyoshi" />
           <ProfileBio>
-            你好，这里是秋吉工作室。专注于各类文化品牌设计、创意创作，
+            您好，这里是秋喆设计。专注于各类品牌设计、创意创作，
             致力打磨优秀作品。我相信优秀的设计不仅能传达信息，更能创造价值，
             期待能与您合作，共同打造出色的作品。
           </ProfileBio>

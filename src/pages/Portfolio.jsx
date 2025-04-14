@@ -144,7 +144,7 @@ const Portfolio = () => {
   return (
     <PortfolioContainer>
       <PortfolioHeader>
-        <Title>作品集</Title>
+        <Title>作品/案例</Title>
       </PortfolioHeader>
 
       <FilterContainer>
